@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<cr>", { desc = "Open Ex mode" })
+vim.keymap.set("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line(s) down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line(s) up" })
