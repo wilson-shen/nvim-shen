@@ -20,7 +20,7 @@ require('lazy').setup({
   { 'MunifTanjim/nui.nvim' },
   { 'windwp/nvim-ts-autotag' },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
-  { 'RRethy/vim-illuminate' },
+  { 'loctvl842/monokai-pro.nvim' },
 
   {
     'nvim-telescope/telescope.nvim',
@@ -30,12 +30,6 @@ require('lazy').setup({
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  },
-  {
-    'loctvl842/monokai-pro.nvim',
-    config = function()
-      require('monokai-pro').setup()
-    end
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -106,16 +100,6 @@ require('lazy').setup({
   {
     "Exafunction/codeium.vim",
     event = 'BufEnter',
-    -- cmd = "Codeium",
-    -- build = ":Codeium Auth",
-    -- opts = {},
-    -- dependencies = {
-    --   "nvim-lua/plenary.nvim",
-    --   "hrsh7th/nvim-cmp",
-    -- },
-    -- config = function()
-    --   require("codeium").setup()
-    -- end,
   },
 
   -- LSP --
