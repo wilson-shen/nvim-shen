@@ -13,7 +13,7 @@ gitsigns.setup({
 })
 
 vim.keymap.set('n', '<leader>gt', gitsigns.toggle_current_line_blame, { desc = "Toggle git blame" })
-vim.keymap.set('n', '<leader>gp', gitsigns.preview_hunk, { desc = "Preview git hunk" })
+vim.keymap.set('n', '<leader>gph', gitsigns.preview_hunk, { desc = "Preview git hunk" })
 
 
 --- Fungitive ---
@@ -33,3 +33,4 @@ vim.keymap.set('n', '<leader>gcm', ':Git commit -m', { desc = "Git commit" })
 vim.keymap.set('n', '<leader>gco', ':Git checkout', { desc = "Git checkout" })
 vim.keymap.set('n', '<leader>gcb', ':Git checkout -b', { desc = "Git checkout -b" })
 vim.keymap.set('n', '<leader>gm', ':Git merge', { desc = "Git merge" })
+vim.keymap.set('n', '<leader>gfm', ':Git fetch origin master', { desc = "Git fetch origin master" })
