@@ -34,7 +34,7 @@ require('mason-lspconfig').setup({
     'jsonls',
     'lua_ls',
     'phpactor',
-    -- 'rust_analyzer',
+    'rust_analyzer',
     'sqlls',
     'svelte',
     'tailwindcss',
