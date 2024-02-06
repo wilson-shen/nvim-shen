@@ -1,3 +1,3 @@
-local lazy = require('lazy')
+local lazy = require("lazy")
 
-vim.keymap.set('n', '<leader>l', lazy.home, {})
+vim.keymap.set("n", "<leader>l", lazy.home, { desc = "Lazy home" })

@@ -77,11 +77,13 @@ conform.setup({
 })
 
 -- Key bindings --
-vim.keymap.set("n", "<leader>ce", vim.cmd.EslintFixAll, { desc = "Run Eslint with LSP" })
--- vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code with LSP" })
+vim.keymap.set("n", "<leader>ce", vim.cmd.EslintFixAll, { desc = "[C]ode: Run [E]slint with LSP" })
+
 vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 	conform.format({ lsp_fallback = true, async = true })
-end, { desc = "Format code with conform.nvim" })
+end, { desc = "[C]ode: [F]ormat code with conform.nvim" })
+
+vim.keymap.set("n", "<leader>cF", vim.lsp.buf.format, { desc = "[C]ode: [F]ormat code with LSP" })
 
 -- Ensure Install prettier --
 require("mason-tool-installer").setup({
