@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>qq", "<cmd>q<cr>", { desc = "[Q]uit" })
 
 vim.keymap.set("n", "<leader>ws", "<cmd>w<cr>", { desc = "[W]rite: Save" })
 vim.keymap.set("n", "<leader>wq", "<cmd>wq<cr>", { desc = "[W]rite: Save & [Q]uit" })
+vim.keymap.set("n", "<leader>wd", "<cmd>w<cr><cmd>Ex<cr>", { desc = "[W]rite: Save & quit to [D]irectory" })
 
 vim.keymap.set("n", "H", "^", { desc = "Move cursor to start of line, first non-whitespace" })
 vim.keymap.set("n", "L", "$", { desc = "Move cursor to end of line" })
