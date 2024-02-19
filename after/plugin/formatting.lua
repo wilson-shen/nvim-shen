@@ -14,6 +14,7 @@ conform.setup({
 		markdown = { "prettier" },
 		graphql = { "prettier" },
 		lua = { "stylua" },
+		php = { "php" },
 		["_"] = { "trim_whitespace" },
 	},
 	format_on_save = function(bufnr)
@@ -73,6 +74,15 @@ conform.setup({
 				return args
 			end,
 		},
+
+		php = {
+			command = "php-cs-fixer",
+			args = {
+				"fix",
+				"--config=~/.config/composer/vendor/bin/.php-cs-fixer.php",
+			},
+			stdin = false,
+		},
 	},
 })
 
@@ -90,5 +100,6 @@ require("mason-tool-installer").setup({
 	ensure_installed = {
 		"prettier",
 		"stylua",
+		"phpactor",
 	},
 })
