@@ -12,9 +12,9 @@ vim.keymap.set("n", "<leader>ha", function()
 	harpoon:list():append()
 end, { desc = "[H]arpoon [A]dd" })
 
-vim.keymap.set("n", "<leader>hd", function()
-	harpoon:list():delete()
-end, { desc = "[H]arpoon [D]elete" })
+vim.keymap.set("n", "<leader>hr", function()
+	harpoon:list():remove()
+end, { desc = "[H]arpoon [R]emove" })
 
 vim.keymap.set("n", "<leader>hc", function()
 	harpoon:list():clear()

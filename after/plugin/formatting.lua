@@ -25,9 +25,9 @@ conform.setup({
 		end
 
 		return {
-			timeout_ms = 500,
+			timeout_ms = 1000,
 			lsp_fallback = true,
-			async = true,
+			async = false,
 		}
 	end,
 	format_after_save = {
@@ -79,7 +79,8 @@ conform.setup({
 			command = "php-cs-fixer",
 			args = {
 				"fix",
-				"--config=~/.config/composer/vendor/bin/.php-cs-fixer.php",
+				"$FILENAME",
+				"--config=/home/shen/.config/composer/vendor/bin/.php-cs-fixer.php",
 			},
 			stdin = false,
 		},

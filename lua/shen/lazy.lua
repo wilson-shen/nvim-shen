@@ -106,7 +106,11 @@ require("lazy").setup({
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{
 		"stevearc/conform.nvim",
-		event = { "LspAttach" },
+		event = {
+			"LspAttach",
+			"BufReadPre",
+			"BufNewFile",
+		},
 	},
 
 	-- LSP --
