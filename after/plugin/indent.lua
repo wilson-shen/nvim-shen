@@ -1,5 +1,9 @@
-require("ibl").setup()
+require("ibl").setup({
+	indent = {
+		char = "▏",
+	},
+})
 
-require('mini.indentscope').setup({
-  symbol = '▎'
+require("mini.indentscope").setup({
+	symbol = "▏",
 })

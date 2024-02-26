@@ -50,7 +50,11 @@ lsp.on_attach(function(client, bufnr)
 	end, AddDescToOpts(opts, "[C]ode [R]e[N]ame"))
 end)
 
-require("mason").setup({})
+require("mason").setup({
+	ui = {
+		border = "rounded",
+	},
+})
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"cssls",
@@ -117,6 +121,14 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select), -- [N]ext
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- [Enter]Confirm
 	}),
+	window = {
+		completion = {
+			border = "rounded",
+		},
+		documentation = {
+			border = "rounded",
+		},
+	},
 })
 
 -- Floating windows --
@@ -126,6 +138,11 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	callback = function()
 		vim.diagnostic.open_float(nil, { focus = false })
 	end,
+})
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+	},
 })
 
 -- Auto import not to use relative path --
