@@ -22,3 +22,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99

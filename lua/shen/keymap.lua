@@ -27,7 +27,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to black hol
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = "Don't record macro" })
-vim.keymap.set("n", "qq", "<nop>", { desc = "Don't record macro" })
+vim.keymap.set("n", "q", "<nop>", { desc = "Don't record macro" })
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Open tmux sessionizer" })
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix item" })

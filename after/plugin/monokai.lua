@@ -1,7 +1,9 @@
-require("monokai-pro").setup({
+local monokai = require("monokai-pro")
+
+monokai.setup({
 	transparent_background = true,
 	devicons = true,
-	filter = "spectrum",
+	filter = "pro",
 	background_clear = {
 		"float_win",
 		"telescope",
@@ -13,6 +15,8 @@ require("monokai-pro").setup({
 		},
 	},
 })
+
+monokai.load()
 
 function InitTheme(theme)
 	theme = theme or "monokai-pro"
