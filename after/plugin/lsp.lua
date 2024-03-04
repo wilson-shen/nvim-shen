@@ -15,7 +15,11 @@ lsp.on_attach(function(client, bufnr)
 
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
-	end, AddDescToOpts(opts, "Go to definition"))
+	end, AddDescToOpts(opts, "[G]o to [D]efinition"))
+
+  vim.keymap.set("n", "gr", function()
+    vim.lsp.buf.references()
+  end, AddDescToOpts(opts, "[G]o to [R]eferences"))
 
 	vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
@@ -40,10 +44,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>ca", function()
 		vim.lsp.buf.code_action()
 	end, AddDescToOpts(opts, "[C]ode [A]ction"))
-
-	vim.keymap.set("n", "<leader>crf", function()
-		vim.lsp.buf.references()
-	end, AddDescToOpts(opts, "[C]ode [R]e[F]erences"))
 
 	vim.keymap.set("n", "<leader>crn", function()
 		vim.lsp.buf.rename()
