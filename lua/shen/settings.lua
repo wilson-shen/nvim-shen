@@ -6,6 +6,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.showbreak = string.rep(" ", 4)
@@ -24,3 +25,14 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
+
+-- Autocommands
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+
