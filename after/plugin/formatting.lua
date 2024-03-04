@@ -17,22 +17,22 @@ conform.setup({
 		php = { "php" },
 		["_"] = { "trim_whitespace" },
 	},
-	format_on_save = function(bufnr)
-		local bufname = vim.api.nvim_buf_get_name(bufnr)
-
-		if bufname:match("/node_modules/") then
-			return
-		end
-
-		return {
-			timeout_ms = 1000,
-			lsp_fallback = true,
-			async = false,
-		}
-	end,
-	format_after_save = {
-		lsp_fallback = true,
-	},
+	-- format_on_save = function(bufnr)
+	-- 	local bufname = vim.api.nvim_buf_get_name(bufnr)
+	--
+	-- 	if bufname:match("/node_modules/") then
+	-- 		return
+	-- 	end
+	--
+	-- 	return {
+	-- 		timeout_ms = 1000,
+	-- 		lsp_fallback = true,
+	-- 		async = false,
+	-- 	}
+	-- end,
+	-- format_after_save = {
+	-- 	lsp_fallback = true,
+	-- },
 	notify_on_error = true,
 	formatters = {
 		prettier = {
