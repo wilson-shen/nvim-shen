@@ -85,10 +85,6 @@ require("lazy").setup({
 		version = "*",
 	},
 	{
-		"echasnovski/mini.pairs",
-		version = "*",
-	},
-	{
 		"echasnovski/mini.surround",
 		version = "*",
 	},
