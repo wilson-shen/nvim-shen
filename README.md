@@ -1,5 +1,7 @@
 # My Neovim config
-Thanks to @ThePrimeagen's guide on "0 to LSP" youtube video. My 99% following the video setting is in this [Repo](https://github.com/wilson-shen/nvim-theprimeagen-guide).
+Thanks to
+- @ThePrimeagen's guide on ["0 to LSP" youtube video](https://www.youtube.com/watch?v=w7i4amO_zaE).
+- @dmmulroy's [nvim config](https://github.com/dmmulroy/kickstart.nix/tree/main/config/nvim)
 
 ### In this setup
 I had swap some plugins in this config such as using lazy as plugin manager, updated some plugins in my config like Harpoon and lsp-zero are using the up-to-date version, implemented CodeiumAI as my alternative to Copilot, and many more changes compare to @ThePrimegen's guide.
