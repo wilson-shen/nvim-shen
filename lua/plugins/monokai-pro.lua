@@ -15,7 +15,7 @@ return {
             context_start_underline = false,
           }
         },
-        transparent_background = false,
+        transparent_background = true,
       })
 
       vim.cmd.colorscheme('monokai-pro')

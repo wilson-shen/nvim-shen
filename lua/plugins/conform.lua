@@ -3,7 +3,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    event = { "VeryLazy" },
     cmd = { "ConformInfo" },
     opts = {
       notify_on_error = true,
@@ -78,7 +78,6 @@ return {
             end
 
             return args
-
           end,
         },
 
