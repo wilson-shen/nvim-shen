@@ -9,16 +9,16 @@ bind("n", "Q", "q", { desc = "Record macro" })
 bind("n", "q", "<nop>", { desc = "Disable record macro, use <leader>q" })
 
 -- Clear hightlignt after search is highlighted
-bind("n", "<Esc>", ":nohlsearch<cr>", { desc = "Disable highlight search" })
+bind("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Disable highlight search" })
 
 -- Quit
-bind("n", "<leader>qq", ":q<cr>", { desc = "[Q]uit" })
-bind("n", "<leader>qd", ":Ex<cr>", { desc = "[Q]uit to [D]irectory" })
+bind("n", "<leader>qq", "<cmd>q<cr>", { desc = "[Q]uit" })
+bind("n", "<leader>qd", "<cmd>Ex<cr>", { desc = "[Q]uit to [D]irectory" })
 
 -- Write action
-bind("n", "<leader>ws", ":w<cr>", { desc = "[W]rite: [S]ave" })
-bind("n", "<leader>wq", ":wq<cr>", { desc = "[W]rite: Save & [Q]uit" })
-bind("n", "<leader>wd", ":w<cr>:Ex<cr>", { desc = "[W]rite: Save & quit to [D]irectory" })
+bind("n", "<leader>ws", "<cmd>w<cr>", { desc = "[W]rite: [S]ave" })
+bind("n", "<leader>wq", "<cmd>wq<cr>", { desc = "[W]rite: Save & [Q]uit" })
+bind("n", "<leader>wd", "<cmd>w<cr><cmd>Ex<cr>", { desc = "[W]rite: Save & quit to [D]irectory" })
 
 -- Extra Delete, Yank, Paste config
 bind("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting (visual mode)" })
@@ -41,8 +41,8 @@ bind("n", "<C-d>", "<C-d>zz", { desc = "Scroll half-page down and center" })
 bind("n", "<C-u>", "<C-u>zz", { desc = "Scroll half-page up and center" })
 bind("n", "n", "nzzzv", { desc = "Search next, keep cursor centered" })
 bind("n", "N", "Nzzzv", { desc = "Search previous, keep cursor centered" })
-bind("n", "<leader>k", ":lnext<cr>zz", { desc = "Next location item" })
-bind("n", "<leader>j", ":lprev<cr>zz", { desc = "Previous location item" })
+bind("n", "<leader>k", "<cmd>lnext<cr>zz", { desc = "Next location item" })
+bind("n", "<leader>j", "<cmd>lprev<cr>zz", { desc = "Previous location item" })
 bind("n", "{", "{zz", { desc = "" })
 bind("n", "}", "}zz", { desc = "" })
 bind("n", "G", "Gzz", { desc = "" })
@@ -53,8 +53,8 @@ bind("n", "*", "*zz", { desc = "" })
 bind("n", "#", "#zz", { desc = "" })
 
 -- Move lines
-bind("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
-bind("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
+bind("v", "J", "<cmd>m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
+bind("v", "K", "<cmd>m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
 
 -- Search and replace
 bind(
@@ -87,5 +87,5 @@ bind("n", "<leader>dq", function()
 	})
 end, { desc = "[D]iagnostic: [Q]uickfix" })
 
-bind("n", "<leader>dn", ":cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })
-bind("n", "<leader>dp", ":cprev<cr>zz", { desc = "[D]iagnostic: [P]revious quickfix item" })
+bind("n", "<leader>dn", "<cmd>cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })
+bind("n", "<leader>dp", "<cmd>cprev<cr>zz", { desc = "[D]iagnostic: [P]revious quickfix item" })
