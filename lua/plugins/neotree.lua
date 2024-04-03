@@ -15,12 +15,23 @@ return {
             visible = true,
             hide_dotfiles = false,
             hide_gitignored = false,
-          }
+          },
+          follow_current_file = {
+            enable = true,
+            leave_dirs_open = false,
+          },
+        },
+        buffers = {
+          follow_current_file = {
+            enabled = true,
+            leave_dirs_open = false,
+          },
         },
         lazy = false,
       })
 
-      vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<cr>", { desc = "Neotree: Toggle Explorer" })
+      vim.keymap.set("n", "<C-e>", "<cmd>Neotree filesystem toggle left<cr>", { desc = "Neotree: Toggle Explorer" })
+      vim.keymap.set("n", "<M-e>", "<cmd>Neotree filesystem reveal left<cr>", { desc = "Neotree: Reveal current file" })
     end
   }
 }
