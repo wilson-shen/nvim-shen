@@ -2,7 +2,7 @@
 local bind = vim.keymap.set
 
 -- Disable F1
-bind({"n", "i", "v"}, "<F1>", "<nop>", { desc = "Disable F1 help, use :help" })
+bind({ "n", "i", "v" }, "<F1>", "<nop>", { desc = "Disable F1 help, use :help" })
 
 -- Rebind record macro
 bind("n", "Q", "q", { desc = "Record macro" })
@@ -58,33 +58,33 @@ bind("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
 
 -- Search and replace
 bind(
-	"n",
-	"<leader>sr",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "[S]earch & [R]eplace word under cursor" }
+  "n",
+  "<leader>sr",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "[S]earch & [R]eplace word under cursor" }
 )
 
 -- Diagnostic keymaps
 bind("n", "[d", function()
-	vim.diagnostic.goto_prev({})
-	vim.api.nvim_feedkeys("zz", "n", false)
+  vim.diagnostic.goto_prev({})
+  vim.api.nvim_feedkeys("zz", "n", false)
 end, { desc = "Go to previous diagnostic" })
 
 bind("n", "]d", function()
-	vim.diagnostic.goto_next({})
-	vim.api.nvim_feedkeys("zz", "n", false)
+  vim.diagnostic.goto_next({})
+  vim.api.nvim_feedkeys("zz", "n", false)
 end, { desc = "Go to next diagnostic" })
 
 bind("n", "<leader>de", function()
-	vim.diagnostic.open_float({
-		border = "rounded",
-	})
+  vim.diagnostic.open_float({
+    border = "rounded",
+  })
 end, { desc = "[D]iagnostic: [E]rror messages" })
 
 bind("n", "<leader>dq", function()
-	vim.diagnostic.setloclist({
-		border = "rounded",
-	})
+  vim.diagnostic.setloclist({
+    border = "rounded",
+  })
 end, { desc = "[D]iagnostic: [Q]uickfix" })
 
 bind("n", "<leader>dn", "<cmd>cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })

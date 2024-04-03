@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 return {
   {
     "rcarriga/nvim-notify",
@@ -5,9 +7,10 @@ return {
     config = function()
       local notify = require("notify")
 
-      require("notify.config").setup({
-        stages = 'slide',
-      });
+      notify.setup({
+        background_colour = "#000000",
+        stages = "slide",
+      })
 
       local filtered_message = { "No information available" }
 
@@ -40,6 +43,7 @@ return {
         highlight NotifyWARNBorder guifg=#ffd866
         highlight NotifyWARNIcon guifg=#ffd866
         highlight NotifyWARNTitle guifg=#ffd866
+        highlight NotifyBackground guifg=#000000
       ]])
     end,
   },
