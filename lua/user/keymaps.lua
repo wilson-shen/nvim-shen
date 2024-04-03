@@ -53,8 +53,8 @@ bind("n", "*", "*zz", { desc = "" })
 bind("n", "#", "#zz", { desc = "" })
 
 -- Move lines
-bind("v", "J", "<cmd>m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
-bind("v", "K", "<cmd>m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
+bind("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
+bind("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
 
 -- Search and replace
 bind(
