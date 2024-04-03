@@ -5,6 +5,10 @@ return {
     config = function()
       local notify = require("notify")
 
+      require("notify.config").setup({
+        stages = 'slide',
+      });
+
       local filtered_message = { "No information available" }
 
       -- Override notify function to filter out messages

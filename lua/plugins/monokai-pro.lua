@@ -5,7 +5,8 @@ return {
       require('monokai-pro').setup({
         background_clear = {
           'float_win',
-          'telescope'
+          'telescope',
+          'notify',
         },
         devicons = true,
         filter = 'pro',
