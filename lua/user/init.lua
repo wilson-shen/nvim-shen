@@ -1,5 +1,3 @@
 require('user.options')
-require('user.indent')
 require('user.lazy')
 require('user.keymaps')
-require("user.highlight-yank")

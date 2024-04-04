@@ -13,22 +13,19 @@ return {
         "                                                  ",
         "                                                  ",
         "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
         " ██╗    ██╗██╗██╗     ███████╗ ██████╗ ███╗   ██╗ ",
         " ██║    ██║██║██║     ██╔════╝██╔═══██╗████╗  ██║ ",
         " ██║ █╗ ██║██║██║     ███████╗██║   ██║██╔██╗ ██║ ",
         " ██║███╗██║██║██║     ╚════██║██║   ██║██║╚██╗██║ ",
         " ╚███╔███╔╝██║███████╗███████║╚██████╔╝██║ ╚████║ ",
         "  ╚══╝╚══╝ ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ",
+        "                                                  ",
+        "                                                  ",
+        "                                                  ",
+        "                                                  ",
+        "                                                  ",
+        "                                                  ",
+        "                                                  ",
         "                                                  ",
         "                                                  ",
         "                                                  ",
@@ -62,7 +59,7 @@ return {
       dashboard.section.footer.val = footer()
 
       dashboard.section.header.opts.hl = "String"
-      dashboard.section.footer.opts.hl = "Comment"
+      dashboard.section.footer.opts.hl = "Function"
 
       dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
