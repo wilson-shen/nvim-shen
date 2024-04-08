@@ -58,8 +58,8 @@ return {
 
       dashboard.section.footer.val = footer()
 
-      dashboard.section.header.opts.hl = "String"
-      dashboard.section.footer.opts.hl = "Function"
+      dashboard.section.header.opts.hl = "@comment.documentation.lua"
+      dashboard.section.footer.opts.hl = "String"
 
       dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
