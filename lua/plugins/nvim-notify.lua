@@ -12,11 +12,16 @@ return {
         stages = "slide",
       })
 
-      local filtered_message = { "No information available" }
+      local filtered_message = {
+        "No information available",
+        "method textDocument/documentHighlight is not supported by any of the servers registered for the current buffer",
+      }
 
       -- Override notify function to filter out messages
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.notify = function(message, level, opts)
+        message = string.gsub(message, '^%s*(.-)%s*$', '%1')
+
         local merged_opts = vim.tbl_extend("force", {
           on_open = function(win)
             local buf = vim.api.nvim_win_get_buf(win)
