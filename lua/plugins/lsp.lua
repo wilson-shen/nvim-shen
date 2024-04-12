@@ -154,7 +154,7 @@ return {
           outline = true,
           suggestFromUnimportedLibraries = true,
         },
-        -- root_dir = root_pattern("pubspec.yaml"),
+        root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
         settings = {
           dart = {
             completeFunctionCalls = true,
