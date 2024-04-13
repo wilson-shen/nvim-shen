@@ -59,9 +59,9 @@ bind("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
 -- Search and replace
 bind(
   "n",
-  "<leader>sr",
+  "<leader>cr",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "[S]earch & [R]eplace word under cursor" }
+  { desc = "[C]ode: [R]eplace word under cursor" }
 )
 
 -- Diagnostic keymaps
