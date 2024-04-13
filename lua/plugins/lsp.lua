@@ -40,9 +40,6 @@ return {
         -- Fuzzy find all the symbols in current workspace.
         map("<leader>sS", telescope_builtin.lsp_dynamic_workspace_symbols, "[S]earch Workspace [S]ymbols")
 
-        -- Rename the variable under cursor.
-        map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-
         -- Execute a code action
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
