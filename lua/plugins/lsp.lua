@@ -6,11 +6,14 @@ return {
       { "neovim/nvim-lspconfig" },
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-      { "j-hui/fidget.nvim", opts = {} },
-      { "folke/neodev.nvim", opts = {} },
+      { "j-hui/fidget.nvim",                opts = {} },
+      { "folke/neodev.nvim",                opts = {} },
     },
     config = function()
+      -- Neodev
+      require("neodev").setup()
+
+      -- LSP
       local lsp = require("lsp-zero")
 
       lsp.on_attach(function(client, bufnr)
@@ -73,27 +76,6 @@ return {
         },
       })
 
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          "cssls",
-          "cssmodules_ls",
-          "eslint",
-          -- "golangci_lint_ls",
-          -- "gopls",
-          "html",
-          "jsonls",
-          "lua_ls",
-          "phpactor",
-          "prettier",
-          "rust_analyzer",
-          "sqlls",
-          "stylua",
-          "svelte",
-          "tailwindcss",
-          "tsserver",
-        },
-      })
-
       require("mason-lspconfig").setup({
         ensure_installed = {
           "csharp_ls",
@@ -112,7 +94,6 @@ return {
           "tailwindcss",
           "tsserver",
         },
-
         handlers = {
           lsp.default_setup,
 

@@ -3,8 +3,17 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = { "VeryLazy" },
-    cmd = { "ConformInfo" },
+    cmd = {
+      "ConformInfo"
+    },
+    event = {
+      "LspAttach",
+      "BufReadPre",
+      "BufNewFile",
+    },
+    dependencies = {
+      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+    },
     opts = {
       notify_on_error = true,
       -- format_on_save = function(bufnr)
@@ -109,6 +118,14 @@ return {
 
       -- Format with LSP
       vim.keymap.set("n", "<leader>cF", vim.lsp.buf.format, { desc = "[C]ode: [F]ormat code with LSP" })
+
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "phpactor",
+          "prettier",
+          "stylua",
+        },
+      })
     end
   },
 }
