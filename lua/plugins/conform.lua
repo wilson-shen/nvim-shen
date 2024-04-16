@@ -20,6 +20,9 @@ return {
       -- 		async = false,
       -- 	}
       -- end,
+      -- format_after_save = {
+      -- 	lsp_fallback = true,
+      -- },
       formatters_by_ft = {
         javascript = { "prettier" },
         typescript = { "prettier" },
