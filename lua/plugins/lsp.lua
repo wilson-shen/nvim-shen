@@ -105,8 +105,6 @@ return {
         },
       })
 
-      lsp.setup_servers({ "dartls", force = true })
-
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup({
@@ -122,6 +120,11 @@ return {
         },
       })
 
+      lspconfig.phpactor.setup({
+        filetypes = { "php", "blade" },
+      })
+
+      lsp.setup_servers({ "dartls", force = true })
       lspconfig.dartls.setup({
         cmd = { "dart", "language-server", "--protocol=lsp" },
         filetypes = { "dart" },
