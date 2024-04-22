@@ -39,6 +39,8 @@ return {
       vim.keymap.set("n", "<leader>o", function()
         require("oil").open()
       end, { desc = "[O]il File Explorer" })
+
+      vim.keymap.set("n", "<leader>wd", "<cmd>w<cr><cmd>Oil<cr>", { desc = "[W]rite: Save & quit to [D]irectory" })
     end,
   },
 }

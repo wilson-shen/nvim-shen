@@ -12,13 +12,11 @@ bind("n", "q", "<nop>", { desc = "Disable record macro, use <leader>q" })
 bind("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Disable highlight search" })
 
 -- Quit
-bind("n", "<leader>qq", "<cmd>q<cr>", { desc = "[Q]uit" })
-bind("n", "<leader>qd", "<cmd>Ex<cr>", { desc = "[Q]uit to [D]irectory" })
+bind("n", "<leader>q", "<cmd>q<cr>", { desc = "[Q]uit" })
 
 -- Write action
 bind("n", "<leader>ws", "<cmd>w<cr>", { desc = "[W]rite: [S]ave" })
 bind("n", "<leader>wq", "<cmd>wq<cr>", { desc = "[W]rite: Save & [Q]uit" })
-bind("n", "<leader>wd", "<cmd>w<cr><cmd>Ex<cr>", { desc = "[W]rite: Save & quit to [D]irectory" })
 
 -- Extra Delete, Yank, Paste config
 bind("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting (visual mode)" })
