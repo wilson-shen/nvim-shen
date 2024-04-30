@@ -1,4 +1,3 @@
--- local TERM = os.getenv("TERM")
 local bind = vim.keymap.set
 
 -- Disable F1
