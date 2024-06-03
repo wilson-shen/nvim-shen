@@ -36,7 +36,7 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>o", function()
+      vim.keymap.set("n", "-", function()
         require("oil").open()
       end, { desc = "[O]il File Explorer" })
 
