@@ -84,5 +84,11 @@ bind("n", "<leader>dq", function()
   })
 end, { desc = "[D]iagnostic: [Q]uickfix" })
 
+bind("n", "<leader>dt", function()
+  vim.diagnostic.config({
+    virtual_text = not vim.diagnostic.config().virtual_text,
+  })
+end, { desc = "[D]iagnostic: [T]oggle inline message" })
+
 bind("n", "<leader>dn", "<cmd>cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })
 bind("n", "<leader>dp", "<cmd>cprev<cr>zz", { desc = "[D]iagnostic: [P]revious quickfix item" })
