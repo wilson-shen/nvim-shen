@@ -40,6 +40,8 @@ bind("n", "n", "nzzzv", { desc = "Search next, keep cursor centered" })
 bind("n", "N", "Nzzzv", { desc = "Search previous, keep cursor centered" })
 bind("n", "<leader>k", "<cmd>lnext<cr>zz", { desc = "Next location item" })
 bind("n", "<leader>j", "<cmd>lprev<cr>zz", { desc = "Previous location item" })
+bind("n", "j", "jzz", { desc = "" })
+bind("n", "k", "kzz", { desc = "" })
 bind("n", "{", "{zz", { desc = "" })
 bind("n", "}", "}zz", { desc = "" })
 bind("n", "G", "Gzz", { desc = "" })
@@ -48,6 +50,12 @@ bind("n", "<C-o>", "<C-o>zz", { desc = "" })
 bind("n", "%", "%zz", { desc = "" })
 bind("n", "*", "*zz", { desc = "" })
 bind("n", "#", "#zz", { desc = "" })
+
+-- Navigate in Insert mode
+bind("i", "<C-j>", "<C-o>j", { desc = "" })
+bind("i", "<C-k>", "<C-o>k", { desc = "" })
+bind("i", "<C-h>", "<C-o>h", { desc = "" })
+bind("i", "<C-l>", "<C-o>l", { desc = "" })
 
 -- Move lines
 bind("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
