@@ -70,9 +70,14 @@ return {
 
 						callback = vim.lsp.buf.clear_references,
 					})
+				else
+					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "CursorMoved", "CursorMovedI" }, {
+						buffer = opts.buf,
+
+						callback = vim.lsp.buf.clear_references,
+					})
 				end
 			end)
-
 			-- Ensure the servers and tools above are installed
 			require("mason").setup({
 				ui = {
@@ -85,8 +90,8 @@ return {
 					"cssls",
 					"cssmodules_ls",
 					"eslint",
-					-- "golangci_lint_ls",
-					-- "gopls",
+					"golangci_lint_ls",
+					"gopls",
 					"html",
 					"jsonls",
 					"lua_ls",
@@ -201,17 +206,23 @@ return {
 
 			-- Floating windows --
 			vim.o.updatetime = 250
-			vim.keymap.set(
-				"n",
-				"<leader>dm",
-				"<cmd>lua vim.diagnostic.open_float()<cr>",
-				{ desc = "[D]iagnostics: [M]essage" }
-			)
+
+			vim.keymap.set("n", "<leader>dm", function()
+				vim.diagnostic.open_float(nil, { focus = false })
+			end, { desc = "[D]iagnostics: [M]essage" })
+
 			vim.diagnostic.config({
 				float = {
 					border = "rounded",
 				},
 			})
+
+			-- Diagnostic signs
+			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			end
 
 			-- LSP inlay hint
 			if vim.lsp.inlay_hint then
