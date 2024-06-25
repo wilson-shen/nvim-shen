@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI", "CursorMoved", "CursorMovedI"}, {
+vim.api.nvim_create_autocmd({"CursorHold", "CursorMoved"}, {
   pattern = "*",
   callback = function()
     if vim.fn.line(".") == vim.fn.line("$") then
