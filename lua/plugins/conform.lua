@@ -101,7 +101,7 @@ return {
 						args = {
 							"fix",
 							"$FILENAME",
-							"--config=/home/shen/.config/.php-cs-fixer.php",
+							"--config=/home/shen/.config/php-cs-fixer/.php-cs-fixer.php",
 						},
 						stdin = false,
 					},
