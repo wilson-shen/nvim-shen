@@ -10,13 +10,6 @@ bind("n", "q", "<nop>", { desc = "Disable record macro, use <leader>q" })
 -- Clear hightlignt after search is highlighted
 bind("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Disable highlight search" })
 
--- Quit
-bind("n", "<leader>q", "<cmd>q<cr>", { desc = "[Q]uit" })
-
--- Write action
-bind("n", "<leader>ws", "<cmd>w<cr>", { desc = "[W]rite: [S]ave" })
-bind("n", "<leader>wq", "<cmd>wq<cr>", { desc = "[W]rite: Save & [Q]uit" })
-
 -- Extra Delete, Yank, Paste config
 bind("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting (visual mode)" })
 bind({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
