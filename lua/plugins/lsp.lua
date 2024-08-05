@@ -51,32 +51,6 @@ return {
 
 				-- Goto Declaration.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-				if
-					(vim.bo.filetype ~= "json" or vim.bo.filetype ~= "markdown")
-					and client
-					and client.server_capabilities.documentHighlightProvider
-				then
-					-- Highlight references of the word under cursor when cursor rests on it.
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = opts.buf,
-
-						callback = vim.lsp.buf.document_highlight,
-					})
-
-					-- When cursor moved, the highlights will be cleared.
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = opts.buf,
-
-						callback = vim.lsp.buf.clear_references,
-					})
-				else
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "CursorMoved", "CursorMovedI" }, {
-						buffer = opts.buf,
-
-						callback = vim.lsp.buf.clear_references,
-					})
-				end
 			end)
 			-- Ensure the servers and tools above are installed
 			require("mason").setup({
