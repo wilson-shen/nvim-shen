@@ -13,6 +13,7 @@ return {
       ensure_installed = {
         "bash",
         "c",
+        "c_sharp",
         "css",
         "dart",
         "go",

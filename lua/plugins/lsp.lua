@@ -53,9 +53,9 @@ return {
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 				if
-					client
+					(vim.bo.filetype ~= "json" or vim.bo.filetype ~= "markdown")
+					and client
 					and client.server_capabilities.documentHighlightProvider
-					and (vim.bo.filetype ~= "json" or vim.bo.filetype ~= "markdown")
 				then
 					-- Highlight references of the word under cursor when cursor rests on it.
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -87,6 +87,8 @@ return {
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"biome", -- js, ts, json
+					"csharp_ls",
 					"cssls",
 					"cssmodules_ls",
 					"eslint",
@@ -95,6 +97,7 @@ return {
 					"html",
 					"jsonls",
 					"lua_ls",
+					"marksman",
 					"phpactor",
 					"rust_analyzer",
 					"sqlls",
@@ -203,6 +206,9 @@ return {
 					},
 				},
 			})
+
+			-- csharp_ls --
+			lspconfig.csharp_ls.setup({})
 
 			-- Floating windows --
 			vim.o.updatetime = 250

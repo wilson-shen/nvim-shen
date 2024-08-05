@@ -1,54 +1,23 @@
 return {
-  {
-    "folke/which-key.nvim",
-    event = "VimEnter",
-    config = function()
-      require("which-key").register({
-        ["c"] = {
-          name = "[C]ode", _ = "which_key_ignore",
-        },
-        ["d"] = {
-          name = "[D]iagnostic", _ = "which_key_ignore",
-        },
-        ["f"] = {
-          name = "[F]ile", _ = "which_key_ignore",
-        },
-        ["g"] = {
-          name = "[G]it", _ = "which_key_ignore",
-        },
-        ["h"] = {
-          name = "[H]arpoon", _ = "which_key_ignore",
-        },
-        ["i"] = {
-          name = "[I]import", _ = "which_key_ignore",
-          ["p"] = {
-            name = "[P]HP", _ = "which_key_ignore",
-          }
-        },
-        ["l"] = {
-          name = "[L]azy", _ = "which_key_ignore",
-        },
-        ["r"] = {
-          name = "[R]ename", _ = "which_key_ignore",
-        },
-        ["s"] = {
-          name = "[S]earch", _ = "which_key_ignore",
-        },
-        ["w"] = {
-          name = "[W]rite", _ = "which_key_ignore",
-        },
-        ["q"] = {
-          name = "[Q]uit", _ = "which_key_ignore",
-        },
-      }, {
-        mode = "n",
-        prefix = "<leader>",
-        buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-        silent = true,  -- use `silent` when creating keymaps
-        noremap = true, -- use `noremap` when creating keymaps
-        nowait = false, -- use `nowait` when creating keymaps
-        expr = false,   -- use `expr` when creating keymaps
-      })
-    end,
-  },
+	{
+		"folke/which-key.nvim",
+		event = "VimEnter",
+		config = function()
+			local wk = require("which-key")
+			wk.add({
+				{ "<leader>c", expr = false, group = "[C]ode", mode = "n", nowait = false, remap = false },
+				{ "<leader>d", expr = false, group = "[D]iagnostic", mode = "n", nowait = false, remap = false },
+				{ "<leader>f", expr = false, group = "[F]ile", mode = "n", nowait = false, remap = false },
+				{ "<leader>g", expr = false, group = "[G]it", mode = "n", nowait = false, remap = false },
+				{ "<leader>h", expr = false, group = "[H]arpoon", mode = "n", nowait = false, remap = false },
+				{ "<leader>i", expr = false, group = "[I]import", mode = "n", nowait = false, remap = false },
+				{ "<leader>ip", expr = false, group = "[P]HP", mode = "n", nowait = false, remap = false },
+				{ "<leader>l", expr = false, group = "[L]azy", mode = "n", nowait = false, remap = false },
+				{ "<leader>q", expr = false, group = "[Q]uit", mode = "n", nowait = false, remap = false },
+				{ "<leader>r", expr = false, group = "[R]ename", mode = "n", nowait = false, remap = false },
+				{ "<leader>s", expr = false, group = "[S]earch", mode = "n", nowait = false, remap = false },
+				{ "<leader>w", expr = false, group = "[W]rite", mode = "n", nowait = false, remap = false },
+			})
+		end,
+	},
 }
