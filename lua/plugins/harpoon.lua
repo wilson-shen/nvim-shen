@@ -30,26 +30,6 @@ return {
           harpoon:list():select(i)
         end, { desc = "[H]arpoon Item ["..i.."]" })
       end
-
-      -- vim.keymap.set("n", "<leader>h1", function()
-      --   harpoon:list():select(1)
-      -- end, { desc = "[H]arpoon Item [1]" })
-      --
-      -- vim.keymap.set("n", "<leader>h2", function()
-      --   harpoon:list():select(2)
-      -- end, { desc = "[H]arpoon Item [2]" })
-      --
-      -- vim.keymap.set("n", "<leader>h3", function()
-      --   harpoon:list():select(3)
-      -- end, { desc = "[H]arpoon Item [3]" })
-      --
-      -- vim.keymap.set("n", "<leader>h4", function()
-      --   harpoon:list():select(4)
-      -- end, { desc = "[H]arpoon Item [4]" })
-      --
-      -- vim.keymap.set("n", "<leader>h5", function()
-      --   harpoon:list():select(5)
-      -- end, { desc = "[H]arpoon Item [5]" })
     end
   },
 }
