@@ -102,6 +102,7 @@ return {
 							"fix",
 							"$FILENAME",
 							"--config=/home/shen/.config/php-cs-fixer/.php-cs-fixer.php",
+              "--using-cache=no",
 						},
 						stdin = false,
 					},
