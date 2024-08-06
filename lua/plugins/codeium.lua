@@ -20,6 +20,10 @@ return {
       vim.keymap.set("i", "<M-/>", function()
         return vim.fn["codeium#Clear"]()
       end, { expr = true, silent = true, desc = "Codeium: Clear" })
+
+      vim.keymap.set({"n", "v"}, "<leader>cc", function()
+        return vim.fn["codeium#Chat"]()
+      end, { expr = true, silent = true, desc = "Codeium: Chat" })
     end
   },
 }

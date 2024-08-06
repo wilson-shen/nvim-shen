@@ -2,10 +2,46 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		config = function()
+			local luasnip = require("luasnip")
+			local snippet = luasnip.snippet
+			local text = luasnip.text_node
+			local insert = luasnip.insert_node
+
 			-- Typescript to use JS snippet
-			require("luasnip").filetype_extend("typescript", { "javascript" })
-			require("luasnip").filetype_extend("typescriptreact", { "javascript" })
-			require("luasnip").filetype_extend("javascriptreact", { "javascript" })
+			luasnip.filetype_extend("typescript", { "javascript" })
+			luasnip.filetype_extend("typescriptreact", { "javascript" })
+			luasnip.filetype_extend("javascriptreact", { "javascript" })
+
+			-- PHP --
+			luasnip.add_snippets("php", {
+				snippet({
+					trig = "logcl",
+					name = "Laravel: logger",
+					dscr = "logger()",
+				}, {
+					text({
+						"logger([",
+						"\t__CLASS__,",
+						"\t__LINE__,",
+						"\t",
+					}),
+					insert(0),
+					text({ "", "]);" }),
+				}),
+			})
+
+			-- JS/TS --
+			luasnip.add_snippets("javascript", {
+				snippet({
+					trig = "log",
+					name = "JS/TS: console log",
+					dscr = "console.log()",
+				}, {
+					text("console.log("),
+					insert(0),
+					text(");"),
+				}),
+			})
 		end,
 	},
 }
