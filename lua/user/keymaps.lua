@@ -5,7 +5,7 @@ bind({ "n", "i", "v" }, "<F1>", "<nop>", { desc = "Disable F1 help, use :help" }
 
 -- Rebind record macro
 bind("n", "Q", "q", { desc = "Record macro" })
-bind("n", "q", "<nop>", { desc = "Disable record macro, use <leader>q" })
+bind("n", "q", "<nop>", { desc = "Disable record macro, use Q" })
 
 -- Clear hightlignt after search is highlighted
 bind("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Disable highlight search" })
@@ -54,40 +54,26 @@ bind("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line(s) up" })
 
 -- Search and replace
 bind(
-  "n",
-  "<leader>rp",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "[R]e[p]lace word under cursor" }
+	"n",
+	"<leader>rp",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "[R]e[p]lace word under cursor" }
 )
 
 -- Diagnostic keymaps
-bind("n", "[d", function()
-  vim.diagnostic.goto_prev({})
-  vim.api.nvim_feedkeys("zz", "n", false)
-end, { desc = "Go to previous diagnostic" })
-
-bind("n", "]d", function()
-  vim.diagnostic.goto_next({})
-  vim.api.nvim_feedkeys("zz", "n", false)
-end, { desc = "Go to next diagnostic" })
-
-bind("n", "<leader>de", function()
-  vim.diagnostic.open_float({
-    border = "rounded",
-  })
-end, { desc = "[D]iagnostic: [E]rror messages" })
-
-bind("n", "<leader>dq", function()
-  vim.diagnostic.setloclist({
-    border = "rounded",
-  })
-end, { desc = "[D]iagnostic: [Q]uickfix" })
-
-bind("n", "<leader>dt", function()
-  vim.diagnostic.config({
-    virtual_text = not vim.diagnostic.config().virtual_text,
-  })
-end, { desc = "[D]iagnostic: [T]oggle inline message" })
-
 bind("n", "<leader>dn", "<cmd>cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })
 bind("n", "<leader>dp", "<cmd>cprev<cr>zz", { desc = "[D]iagnostic: [P]revious quickfix item" })
+
+bind("n", "<leader>dm", function()
+	vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+end, { desc = "[D]iagnostics: [M]essage" })
+
+bind("n", "<leader>dl", function()
+	vim.diagnostic.setloclist()
+end, { desc = "[D]iagnostic: Set [L]ocation list" })
+
+bind("n", "<leader>di", function()
+	vim.diagnostic.config({
+		virtual_text = not vim.diagnostic.config().virtual_text,
+	})
+end, { desc = "[D]iagnostic: Toggle [I]nline message" })

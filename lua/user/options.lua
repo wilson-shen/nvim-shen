@@ -45,7 +45,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Decrease updatetime to 200ms
-vim.opt.updatetime = 50
+vim.opt.updatetime = 200
 
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
@@ -96,3 +96,17 @@ vim.opt.guicursor = {
 	"a:blinkwait700-blinkoff400-blinkon250", -- All modes: blinking settings
 	"sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch: block cursor with specific blinking settings
 }
+
+-- Diagnostic Floating windows --
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+	},
+})
+
+-- Diagnostic signs
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

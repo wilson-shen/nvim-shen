@@ -52,6 +52,7 @@ return {
 				-- Goto Declaration.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 			end)
+
 			-- Ensure the servers and tools above are installed
 			require("mason").setup({
 				ui = {
@@ -184,25 +185,9 @@ return {
 			-- csharp_ls --
 			lspconfig.csharp_ls.setup({})
 
-			-- Floating windows --
-			vim.o.updatetime = 250
-
-			vim.keymap.set("n", "<leader>dm", function()
-				vim.diagnostic.open_float(nil, { focus = false })
-			end, { desc = "[D]iagnostics: [M]essage" })
-
-			vim.diagnostic.config({
-				float = {
-					border = "rounded",
-				},
-			})
-
-			-- Diagnostic signs
-			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-			for type, icon in pairs(signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-			end
+			-- default hide diagnostics messages
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
 
 			-- LSP inlay hint
 			if vim.lsp.inlay_hint then
