@@ -61,8 +61,15 @@ bind(
 )
 
 -- Diagnostic keymaps
-bind("n", "<leader>dn", "<cmd>cnext<cr>zz", { desc = "[D]iagnostic: [N]ext quickfix item" })
-bind("n", "<leader>dp", "<cmd>cprev<cr>zz", { desc = "[D]iagnostic: [P]revious quickfix item" })
+bind("n", "[d", function()
+  vim.diagnostic.goto_prev({})
+  vim.api.nvim_feedkeys("zz", "n", false)
+end, { desc = "Go to previous diagnostic" })
+
+bind("n", "]d", function()
+  vim.diagnostic.goto_next({})
+  vim.api.nvim_feedkeys("zz", "n", false)
+end, { desc = "Go to next diagnostic" })
 
 bind("n", "<leader>dm", function()
 	vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })

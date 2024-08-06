@@ -13,10 +13,8 @@ return {
 				{ "<leader>i", expr = false, group = "[I]import", mode = "n", nowait = false, remap = false },
 				{ "<leader>ip", expr = false, group = "[P]HP", mode = "n", nowait = false, remap = false },
 				{ "<leader>l", expr = false, group = "[L]azy", mode = "n", nowait = false, remap = false },
-				{ "<leader>q", expr = false, group = "[Q]uit", mode = "n", nowait = false, remap = false },
 				{ "<leader>r", expr = false, group = "[R]ename", mode = "n", nowait = false, remap = false },
 				{ "<leader>s", expr = false, group = "[S]earch", mode = "n", nowait = false, remap = false },
-				{ "<leader>w", expr = false, group = "[W]rite", mode = "n", nowait = false, remap = false },
 			})
 		end,
 	},
