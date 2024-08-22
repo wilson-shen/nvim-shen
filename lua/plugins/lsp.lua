@@ -32,7 +32,7 @@ return {
 				map("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
 
 				-- Jump to the implementation of the word under cursor.
-				map("gI", telescope_builtin.lsp_implementations, "[G]oto [I]mplementation")
+				map("gi", telescope_builtin.lsp_implementations, "[G]oto [I]mplementation")
 
 				-- Jump to the type of the word under cursor.
 				map("<leader>D", telescope_builtin.lsp_type_definitions, "Type [D]efinition")
