@@ -1,72 +1,82 @@
 return {
-  {
-    "goolord/alpha-nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    event = "VimEnter",
-    config = function()
-      local alpha = require("alpha")
-      local dashboard = require("alpha.themes.dashboard")
+	{
+		"goolord/alpha-nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "VimEnter",
+		config = function()
+			local alpha = require("alpha")
+			local dashboard = require("alpha.themes.dashboard")
 
-      local logo = {
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        " ██╗    ██╗██╗██╗     ███████╗ ██████╗ ███╗   ██╗ ",
-        " ██║    ██║██║██║     ██╔════╝██╔═══██╗████╗  ██║ ",
-        " ██║ █╗ ██║██║██║     ███████╗██║   ██║██╔██╗ ██║ ",
-        " ██║███╗██║██║██║     ╚════██║██║   ██║██║╚██╗██║ ",
-        " ╚███╔███╔╝██║███████╗███████║╚██████╔╝██║ ╚████║ ",
-        "  ╚══╝╚══╝ ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-        "                                                  ",
-      }
+			local logo = {
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				" ██╗    ██╗██╗██╗     ███████╗ ██████╗ ███╗   ██╗ ",
+				" ██║    ██║██║██║     ██╔════╝██╔═══██╗████╗  ██║ ",
+				" ██║ █╗ ██║██║██║     ███████╗██║   ██║██╔██╗ ██║ ",
+				" ██║███╗██║██║██║     ╚════██║██║   ██║██║╚██╗██║ ",
+				" ╚███╔███╔╝██║███████╗███████║╚██████╔╝██║ ╚████║ ",
+				"  ╚══╝╚══╝ ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+				"                                                  ",
+			}
 
-      local buttonhl = function(shortcut, text, command)
-        local button = dashboard.button(shortcut, text, command)
-        button.opts.hl = "Constant"
-        button.opts.hl_shortcut = "Tag"
-        return button
-      end
+			local buttonhl = function(shortcut, text, command)
+				local button = dashboard.button(shortcut, text, command)
+				button.opts.hl = "Constant"
+				if vim.g.colors_name == "monokai" then
+					button.opts.hl_shortcut = "Tag"
+				else
+					button.opts.hl_shortcut = "Keyword"
+				end
 
-      local function footer()
-        local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
-        local version = vim.version()
+				return button
+			end
 
-        local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+			local function footer()
+				local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
+				local version = vim.version()
 
-        return datetime .. nvim_version_info
-      end
+				local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
-      dashboard.section.header.val = logo
+				return datetime .. nvim_version_info
+			end
 
-      dashboard.section.buttons.val = {
-        buttonhl("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
-        buttonhl("r", " " .. " Recent files", "<cmd> Telescope oldfiles <cr>"),
-        buttonhl("g", " " .. " Find text", "<cmd> Telescope live_grep <cr>"),
-        buttonhl("q", " " .. " Quit", "<cmd> qa <cr>"),
-      }
+			dashboard.section.header.val = logo
 
-      dashboard.section.footer.val = footer()
+			dashboard.section.buttons.val = {
+				buttonhl("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
+				buttonhl("r", " " .. " Recent files", "<cmd> Telescope oldfiles <cr>"),
+				buttonhl("g", " " .. " Find text", "<cmd> Telescope live_grep <cr>"),
+				buttonhl("q", " " .. " Quit", "<cmd> qa <cr>"),
+			}
 
-      dashboard.section.header.opts.hl = "@comment.documentation.lua"
-      dashboard.section.footer.opts.hl = "String"
+			dashboard.section.footer.val = footer()
 
-      dashboard.opts.opts.noautocmd = true
-      alpha.setup(dashboard.opts)
+			if vim.g.colors_name == "monokai" then
+				dashboard.section.header.opts.hl = "@comment.documentation.lua"
+			else
+				dashboard.section.header.opts.hl = "Function"
+			end
 
-      vim.cmd([[ Alpha ]]);
+			dashboard.section.footer.opts.hl = "String"
 
-      vim.keymap.set("n", "<leader>al", "<cmd>Alpha<CR>", { desc = "[AL]pha" })
-    end
-  }
+			dashboard.opts.opts.noautocmd = true
+			alpha.setup(dashboard.opts)
+
+			vim.cmd([[ Alpha ]])
+
+			vim.keymap.set("n", "<leader>al", "<cmd>Alpha<CR>", { desc = "[AL]pha" })
+		end,
+	},
 }
