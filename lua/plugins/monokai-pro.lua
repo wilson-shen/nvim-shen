@@ -19,7 +19,7 @@ return {
         transparent_background = true,
       })
 
-      vim.cmd.colorscheme('monokai-pro')
+      -- vim.cmd.colorscheme('monokai-pro')
     end,
   },
 }
