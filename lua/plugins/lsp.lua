@@ -186,8 +186,9 @@ return {
 			lspconfig.csharp_ls.setup({})
 
 			-- default hide diagnostics messages
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
 
 			-- LSP inlay hint
 			if vim.lsp.inlay_hint then

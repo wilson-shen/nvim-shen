@@ -17,7 +17,7 @@ bind("n", "<leader>Y", [["+Y]], { desc = "Yank to system clipboard (linewise)" }
 bind({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to black hole register" })
 
 -- Neovim windows navigation
-bind("n", "<C-v>", "<C-w><C-v>", { desc = "Create vertical window" })
+bind("n", "<M-v>", "<C-w><C-v>", { desc = "Create vertical window" })
 bind("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 bind("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 bind("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
@@ -41,12 +41,6 @@ bind("n", "<C-o>", "<C-o>zz", { desc = "" })
 bind("n", "%", "%zz", { desc = "" })
 bind("n", "*", "*zz", { desc = "" })
 bind("n", "#", "#zz", { desc = "" })
-
--- Navigate in Insert mode
-bind("i", "<C-j>", "<C-o>j", { desc = "" })
-bind("i", "<C-k>", "<C-o>k", { desc = "" })
-bind("i", "<C-h>", "<C-o>h", { desc = "" })
-bind("i", "<C-l>", "<C-o>l", { desc = "" })
 
 -- Move lines
 bind("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line(s) down" })
