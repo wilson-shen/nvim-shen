@@ -24,6 +24,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"windwp/nvim-ts-autotag",
 			"windwp/nvim-autopairs",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -36,6 +37,22 @@ return {
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 			cmp.setup({
+				formatting = {
+					expandable_indicator = true,
+					fields = { "abbr", "kind", "menu" },
+					format = require("lspkind").cmp_format({
+						with_text = true,
+						menu = {
+							buffer = "[buf]",
+							nvim_lsp = "[LSP]",
+							nvim_lua = "[api]",
+							path = "[path]",
+							cargo = "[cargo]",
+							luasnip = "[snip]",
+							codeium = "{…}",
+						},
+					}),
+				},
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
 					["<C-n>"] = cmp.mapping.select_next_item(),
@@ -66,26 +83,42 @@ return {
 							luasnip.jump(-1)
 						end
 					end, { "i", "s" }),
+
+					["<C-k>"] = cmp.mapping(function(fallback)
+						if cmp.visible_docs() then
+							cmp.close_docs()
+						elseif cmp.visible() then
+							cmp.open_docs()
+						else
+							fallback()
+						end
+					end),
 				}),
-				formatting = require("lsp-zero").cmp_format({ details = true }),
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
 				sources = {
 					{ name = "luasnip", max_item_count = 3 }, -- snippets
 					{ name = "nvim_lsp" }, -- lsp
 					{ name = "buffer", max_item_count = 5 }, -- text within current buffer
 					{ name = "path", max_item_count = 3 }, -- file system paths
 				},
+				view = {
+					docs = {
+						auto_open = true,
+					},
+				},
+				visible_docs = true,
 				window = {
 					completion = {
 						border = "rounded",
 					},
 					documentation = {
 						border = "rounded",
+						winhighlight = "Normal:CmpDoc",
 					},
-				},
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
 				},
 			})
 		end,
