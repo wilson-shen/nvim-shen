@@ -94,14 +94,10 @@ return {
           "sqlls",
           "svelte",
           "tailwindcss",
-          "tsserver",
+          "ts_ls",
         },
         handlers = {
           function(server_name)
-            if server_name == "tsserver" then
-              server_name = "ts_ls"
-            end
-
             lspconfig[server_name].setup({
               capabilities = lsp.get_capabilities(),
             })
@@ -149,7 +145,7 @@ return {
             })
           end,
 
-          tsserver = function()
+          ts_ls = function()
             lspconfig.ts_ls.setup({
               init_options = {
                 preferences = {
