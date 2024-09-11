@@ -14,7 +14,7 @@ return {
           mode = 'buffers',
           themable = true,
           numbers = 'none',
-          close_command = 'Bdelete! %d',
+          close_command = 'bdelete! %d',
           buffer_close_icon = '✗',
           close_icon = '✗',
           path_components = 2,
@@ -23,7 +23,7 @@ return {
           right_trunc_marker = '',
           max_name_length = 30,
           max_prefix_length = 30,
-          tab_size = 21,
+          tab_size = 25,
           diagnostics = false,
           diagnostics_update_in_insert = false,
           color_icons = true,
@@ -57,8 +57,36 @@ return {
 
       vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = "Next Tab", noremap = true, silent = true })
       vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous Tab", noremap = true, silent = true })
-      vim.keymap.set('n', '<leader>tc', ':Bdelete!<CR>', { desc = "[T]ab [C]lose", noremap = true, silent = true })
-      vim.keymap.set('n', '<leader>tn', '<cmd> enew <CR>', { desc = "[T]ab [N]ew", noremap = true, silent = true })
+      vim.keymap.set('n', '<C-w>', ':bdelete!<CR>', { desc = "Close Tab", noremap = true, silent = true })
+      vim.keymap.set('n', '<C-T>', '<cmd> enew <CR>', { desc = "New Tab", noremap = true, silent = true })
+
+      -- Remap to delete buffer tab before back to previous tag stack
+      vim.keymap.set('n', '<C-t>', function()
+        local stacks = vim.fn.gettagstack()
+
+        if stacks.length == 0 then
+          print('Tag stack is empty.')
+          return
+        end
+
+        if stacks.length == stacks.curidx then
+          print('Tag stack is at the bottom.')
+          return
+        end
+
+        local current_file = vim.fn.expand('%:p')
+        local prev_file = vim.fn.bufname(stacks.items[stacks.curidx - 1].from[1])
+
+        prev_file = prev_file and vim.fn.fnamemodify(prev_file, ':p')
+
+        if prev_file == current_file then
+          vim.cmd(':1po') -- Jump to previous location
+          return
+        end
+
+        vim.cmd(':bdelete!')
+        vim.cmd(':1po')
+      end, { noremap = true, silent = true });
     end
   }
 }
