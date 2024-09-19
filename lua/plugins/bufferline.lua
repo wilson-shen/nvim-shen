@@ -69,7 +69,7 @@ return {
           return
         end
 
-        if stacks.length == stacks.curidx then
+        if stacks.curidx == 1 then
           print('Tag stack is at the bottom.')
           return
         end
@@ -84,8 +84,10 @@ return {
           return
         end
 
-        vim.cmd(':bdelete!')
+        local current_buf = vim.fn.bufnr('%')
+
         vim.cmd(':1po')
+        vim.cmd(':bdelete! ' .. current_buf)
       end, { noremap = true, silent = true });
     end
   }
