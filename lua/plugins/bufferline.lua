@@ -3,7 +3,6 @@ return {
     'akinsho/bufferline.nvim',
     version = "*",
     dependencies = {
-      'moll/vim-bbye',
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
@@ -14,7 +13,7 @@ return {
           mode = 'buffers',
           themable = true,
           numbers = 'none',
-          close_command = 'bdelete! %d',
+          close_command = 'bd %d',
           buffer_close_icon = '✗',
           close_icon = '✗',
           path_components = 2,
@@ -57,8 +56,8 @@ return {
 
       vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = "Next Tab", noremap = true, silent = true })
       vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous Tab", noremap = true, silent = true })
-      vim.keymap.set('n', '<C-w>', ':bdelete!<CR>', { desc = "Close Tab", noremap = true, silent = true })
-      vim.keymap.set('n', '<C-T>', '<cmd> enew <CR>', { desc = "New Tab", noremap = true, silent = true })
+      vim.keymap.set('n', '<C-w>', ':bd<CR>', { desc = "Close Tab", noremap = true, silent = true })
+      vim.keymap.set('n', '<C-S-t>', ':enew<CR>', { desc = "New Tab", noremap = true, silent = true })
 
       -- Remap to delete buffer tab before back to previous tag stack
       vim.keymap.set('n', '<C-t>', function()
