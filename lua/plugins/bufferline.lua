@@ -80,14 +80,16 @@ return {
         prev_file = prev_file and vim.fn.fnamemodify(prev_file, ':p')
 
         if prev_file == current_file then
-          vim.cmd(':1po') -- Jump to previous location
+          vim.cmd(':1po')
           return
         end
 
-        local current_buf = vim.fn.bufnr('%')
+        -- detatch lsp to this buffer
+        for _, client in pairs(vim.lsp.get_clients()) do
+          vim.lsp.buf_detach_client(0, client.id)
+        end
 
-        vim.cmd(':1po')
-        vim.cmd(':bdelete! ' .. current_buf)
+        vim.cmd(':1po | bd #')
       end, { noremap = true, silent = true });
     end
   }
