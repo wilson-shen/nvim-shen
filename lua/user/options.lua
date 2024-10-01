@@ -26,8 +26,9 @@ vim.opt.hlsearch = true
 -- Soft wrap
 vim.opt.wrap = true
 vim.opt.breakindent = true
-vim.opt.showbreak = string.rep(" ", 4)
+vim.opt.showbreak = string.rep(" ", 2)
 vim.opt.linebreak = true
+vim.opt.textwidth = 120
 
 -- Set leader key to space
 vim.g.mapleader = " "
@@ -79,7 +80,7 @@ vim.opt.foldenable = true
 vim.opt.scrolloff = 10
 
 -- Place a column line
--- vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "120"
 
 -- Enable nerd font
 vim.g.have_nerd_font = true

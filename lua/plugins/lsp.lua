@@ -78,7 +78,6 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "biome", -- js, ts, json
           "csharp_ls",
           "cssls",
           "cssmodules_ls",
@@ -199,8 +198,9 @@ return {
         root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
         settings = {
           dart = {
-            completeFunctionCalls = true,
+            completeFunctionCalls = false,
             showTodos = true,
+            lineLength = 120,
           },
         },
       })
