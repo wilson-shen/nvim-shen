@@ -8,7 +8,7 @@ return {
 				{ "<leader>c", expr = false, group = "[C]ode", mode = "n", nowait = false, remap = false },
 				{ "<leader>d", expr = false, group = "[D]iagnostic", mode = "n", nowait = false, remap = false },
 				{ "<leader>f", expr = false, group = "[F]ile", mode = "n", nowait = false, remap = false },
-				{ "<leader>g", expr = false, group = "[G]it", mode = "n", nowait = false, remap = false },
+				-- { "<leader>g", expr = false, group = "[G]it", mode = "n", nowait = false, remap = false },
 				{ "<leader>h", expr = false, group = "[H]arpoon", mode = "n", nowait = false, remap = false },
 				{ "<leader>i", expr = false, group = "[I]import", mode = "n", nowait = false, remap = false },
 				{ "<leader>ip", expr = false, group = "[P]HP", mode = "n", nowait = false, remap = false },
