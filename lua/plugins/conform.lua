@@ -80,8 +80,18 @@ return {
 								table.insert(args, globalPrettierConfig)
 							end
 
-							local hasTailwindPrettierPlugin = vim.fs.find("node_modules/prettier-plugin-tailwindcss", {
+							local hasSveltePrettierPlugin = vim.fs.find("node_modules/prettier-plugin-svelte", {
+								upward = true,
+								path = ctx.dirname,
+								type = "directory",
+							})[1]
 
+							if hasSveltePrettierPlugin  then
+								table.insert(args, "--plugin")
+								table.insert(args, "prettier-plugin-svelte")
+							end
+
+							local hasTailwindPrettierPlugin = vim.fs.find("node_modules/prettier-plugin-tailwindcss", {
 								upward = true,
 								path = ctx.dirname,
 								type = "directory",
