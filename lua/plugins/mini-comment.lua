@@ -2,6 +2,7 @@ return {
 	{
 		"echasnovski/mini.comment",
 		version = "*",
+    event = "BufEnter",
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
