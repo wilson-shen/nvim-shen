@@ -1,5 +1,5 @@
 local bind = function(mode, keys, func, desc)
-  vim.keymap.set(mode, keys, func, { desc = desc, noremap = true, silent = true })
+	vim.keymap.set(mode, keys, func, { desc = desc, noremap = true, silent = true })
 end
 
 -- Disable F1
@@ -26,8 +26,8 @@ bind("n", "<C-j>", "<C-w><C-j>", "Move focus to the lower window")
 bind("n", "<C-k>", "<C-w><C-k>", "Move focus to the upper window")
 
 -- Navigate in Neovim
-bind("n", "H", "^", "Go to first character in current line")
-bind("n", "L", "$", "Go to last character in current line")
+bind({ "n", "v" }, "H", "^", "Go to first character in current line")
+bind({ "n", "v" }, "L", "$", "Go to last character in current line")
 bind("n", "J", "mzJ`z", "Keep cursor centered after moving down")
 bind("n", "<C-d>", "<C-d>zz", "Scroll half-page down and center")
 bind("n", "<C-u>", "<C-u>zz", "Scroll half-page up and center")
@@ -51,27 +51,31 @@ bind("v", "K", ":m '<-2<cr>gv=gv", "Move line(s) up")
 -- Search and replace
 bind("n", "<leader>rp", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], "[R]e[p]lace")
 
+-- Stay in indent mode
+bind("v", "<", "<gv", "")
+bind("v", ">", ">gv", "")
+
 -- Diagnostic keymaps
 bind("n", "[d", function()
-  vim.diagnostic.goto_prev({})
-  vim.api.nvim_feedkeys("zz", "n", false)
+	vim.diagnostic.goto_prev({})
+	vim.api.nvim_feedkeys("zz", "n", false)
 end, "Go to previous diagnostic")
 
 bind("n", "]d", function()
-  vim.diagnostic.goto_next({})
-  vim.api.nvim_feedkeys("zz", "n", false)
+	vim.diagnostic.goto_next({})
+	vim.api.nvim_feedkeys("zz", "n", false)
 end, "Go to next diagnostic")
 
 bind("n", "<leader>dm", function()
-  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+	vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 end, "[D]iagnostics: [M]essage")
 
 bind("n", "<leader>dl", function()
-  vim.diagnostic.setloclist()
+	vim.diagnostic.setloclist()
 end, "[D]iagnostic: Set [L]ocation list")
 
 bind("n", "<leader>di", function()
-  vim.diagnostic.config({
-    virtual_text = not vim.diagnostic.config().virtual_text,
-  })
+	vim.diagnostic.config({
+		virtual_text = not vim.diagnostic.config().virtual_text,
+	})
 end, "[D]iagnostic: Toggle [I]nline message")
