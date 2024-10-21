@@ -40,9 +40,16 @@ bind("n", "}", "}zz", "")
 bind("n", "G", "Gzz", "")
 bind("n", "<C-i>", "<C-i>zz", "")
 bind("n", "<C-o>", "<C-o>zz", "")
+bind("n", "<C-t>", "<C-t>zz", "")
 bind("n", "%", "%zz", "")
 bind("n", "*", "*zz", "")
 bind("n", "#", "#zz", "")
+
+-- Buffers
+bind("n", "<Tab>", ":bnext<CR>",  "Next Tab")
+bind("n", "<S-Tab>", ":bprevious<CR>",  "Previous Tab")
+bind("n", "<leader>bq", ":bd<CR>",  "[B]uffer: [Q]uit")
+bind("n", "<leader>bn", ":enew<CR>",  "[B]uffer: [N]ew")
 
 -- Move lines
 bind("v", "J", ":m '>+1<cr>gv=gv", "Move line(s) down")
