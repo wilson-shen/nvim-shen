@@ -48,7 +48,7 @@ bind("n", "#", "#zz", "")
 -- Buffers
 bind("n", "<Tab>", ":bnext<CR>",  "Next Tab")
 bind("n", "<S-Tab>", ":bprevious<CR>",  "Previous Tab")
-bind("n", "<leader>bq", ":bd<CR>",  "[B]uffer: [Q]uit")
+bind("n", "<leader>bq", ":bd!<CR>",  "[B]uffer: [Q]uit")
 bind("n", "<leader>bn", ":enew<CR>",  "[B]uffer: [N]ew")
 
 -- Move lines
