@@ -77,8 +77,9 @@ return {
 			local lspconfig = require("lspconfig")
 
 			require("mason-lspconfig").setup({
+				automatic_installation = false,
 				ensure_installed = {
-					"csharp_ls",
+					-- "csharp_ls",
 					"cssls",
 					"cssmodules_ls",
 					"eslint",
