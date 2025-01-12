@@ -46,17 +46,22 @@ bind("n", "*", "*zz", "")
 bind("n", "#", "#zz", "")
 
 -- Buffers
-bind("n", "<Tab>", ":bnext<CR>",  "Next Tab")
-bind("n", "<S-Tab>", ":bprevious<CR>",  "Previous Tab")
-bind("n", "<leader>bq", ":bd!<CR>",  "[B]uffer: [Q]uit")
-bind("n", "<leader>bn", ":enew<CR>",  "[B]uffer: [N]ew")
+bind("n", "<Tab>", ":bnext<CR>", "Next Tab")
+bind("n", "<S-Tab>", ":bprevious<CR>", "Previous Tab")
+bind("n", "<leader>bq", ":bd!<CR>", "[B]uffer: [Q]uit")
+bind("n", "<leader>bn", ":enew<CR>", "[B]uffer: [N]ew")
 
 -- Move lines
 bind("v", "J", ":m '>+1<cr>gv=gv", "Move line(s) down")
 bind("v", "K", ":m '<-2<cr>gv=gv", "Move line(s) up")
 
 -- Search and replace
-bind("n", "<leader>rp", [[:%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>]], "[R]e[p]lace")
+vim.keymap.set(
+	"n",
+	"<leader>rp",
+	[[:%s/<C-r><C-w>/<C-r><C-w>/gIc<Left><Left><Left><Left>]],
+	{ desc = "[R]e[p]lace", noremap = true, silent = false }
+)
 
 -- Stay in indent mode
 bind("v", "<", "<gv", "")
