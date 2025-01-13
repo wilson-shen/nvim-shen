@@ -22,19 +22,36 @@ return {
 				telescope.extensions.flutter.commands()
 			end, { desc = "[F]lutter [F]ind", noremap = true })
 
-			-- vim.keymap.set("n", "<leader>fs", "<cmd>FlutterRun<cr>", { desc = "[F]lutter [S]tart", noremap = true })
 			vim.keymap.set("n", "<leader>fq", "<cmd>FlutterQuit<cr>", { desc = "[F]lutter [Q]uit", noremap = true })
 			vim.keymap.set(
 				"n",
 				"<leader>fh",
-				"<cmd>FlutterReload<cr>",
-				{ desc = "[F]lutter [H]ot reload", noremap = true }
+				":FlutterReload",
+				{ desc = "[F]lutter [H]ot reload", noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>fr",
-				"<cmd>FlutterRestart<cr>",
-				{ desc = "[F]lutter [R]estart", noremap = true }
+				":FlutterRestart",
+				{ desc = "[F]lutter [R]estart", noremap = true, silent = true }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fc",
+				":FlutterLogClear",
+				{ desc = "[F]lutter Log [C]lear", noremap = true, silent = true }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>ft",
+				":FlutterLogToggle",
+				{ desc = "[F]lutter Log [T]oggle", noremap = true, silent = true }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fe",
+				":FlutterEmulators",
+				{ desc = "[F]lutter [E]mulators", noremap = true, silent = true }
 			)
 
 			-- Flutter Run with options
