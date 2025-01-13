@@ -26,8 +26,8 @@ bind("n", "<C-j>", "<C-w><C-j>", "Move focus to the lower window")
 bind("n", "<C-k>", "<C-w><C-k>", "Move focus to the upper window")
 
 -- Navigate in Neovim
-bind({ "n", "v" }, "H", "^", "Go to first character in current line")
-bind({ "n", "v" }, "L", "$", "Go to last character in current line")
+bind({ "n", "v", "o" }, "H", "^", "Go to first character in current line")
+bind({ "n", "v", "o" }, "L", "$", "Go to last character in current line")
 bind("n", "J", "mzJ`z", "Keep cursor centered after moving down")
 bind("n", "<C-d>", "<C-d>zz", "Scroll half-page down and center")
 bind("n", "<C-u>", "<C-u>zz", "Scroll half-page up and center")
