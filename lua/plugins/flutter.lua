@@ -26,43 +26,43 @@ return {
 			vim.keymap.set(
 				"n",
 				"<leader>fh",
-				":FlutterReload",
+				"<cmd>FlutterReload<cr>",
 				{ desc = "[F]lutter [H]ot reload", noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>fr",
-				":FlutterRestart",
+				"<cmd>FlutterRestart<cr>",
 				{ desc = "[F]lutter [R]estart", noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>fc",
-				":FlutterLogClear",
+				"<cmd>FlutterLogClear<cr>",
 				{ desc = "[F]lutter Log [C]lear", noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>ft",
-				":FlutterLogToggle",
+				"<cmd>FlutterLogToggle<cr>",
 				{ desc = "[F]lutter Log [T]oggle", noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>fe",
-				":FlutterEmulators",
+				"<cmd>FlutterEmulators<cr>",
 				{ desc = "[F]lutter [E]mulators", noremap = true, silent = true }
 			)
 
 			-- Flutter Run with options
 			local select_run = {
 				{
-					name = "Dev: Android",
-					args = { "--flavor", "official", "--verbose" },
+					name = "Debug: Verbose",
+					args = { "--debug", "--verbose" },
 				},
 				{
-					name = "Dev: Verbose",
-					args = { "--verbose" },
+					name = "Debug: Official Verbose",
+					args = { "--flavor official", "--debug", "--verbose" },
 				},
 			}
 
