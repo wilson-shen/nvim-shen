@@ -86,7 +86,7 @@ return {
 								type = "directory",
 							})[1]
 
-							if hasSveltePrettierPlugin  then
+							if hasSveltePrettierPlugin then
 								table.insert(args, "--plugin")
 								table.insert(args, "prettier-plugin-svelte")
 							end
@@ -108,12 +108,16 @@ return {
 
 					php = {
 						command = "php-cs-fixer",
-						args = {
-							"fix",
-							"$FILENAME",
-							"--config=/home/shen/.config/php-cs-fixer/.php-cs-fixer.php",
-              "--using-cache=no",
-						},
+						args = function(self, ctx)
+							local args = { "fix", "$FILENAME" }
+
+							local configFile = os.getenv("HOME") .. "/.config/php-cs-fixer/.php-cs-fixer.php"
+
+							table.insert(args, "--config=" .. configFile)
+							table.insert(args, "--using-cache=no")
+
+              return args
+						end,
 						stdin = false,
 					},
 				},
