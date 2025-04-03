@@ -1,0 +1,7 @@
+require('configs.options')
+require('configs.utils')
+require('configs.lazy')
+require('configs.keymaps')
+require('configs.indent')
+require('configs.highlight-yank')
+require('configs.ghostty')

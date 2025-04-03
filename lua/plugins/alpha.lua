@@ -75,7 +75,7 @@ return {
 
 			vim.cmd([[ Alpha ]])
 
-			vim.keymap.set("n", "<leader>al", "<cmd>Alpha<CR>", { desc = "[AL]pha" })
+			bind("n", "<leader>al", "<cmd>Alpha<CR>", "[AL]pha")
 		end,
 	},
 }

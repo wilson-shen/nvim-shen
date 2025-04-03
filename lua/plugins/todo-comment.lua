@@ -69,14 +69,14 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "]t", function()
+		bind("n", "]t", function()
 			require("todo-comments").jump_next()
-		end, { desc = "Next todo comment" })
+		end, "Next todo comment")
 
-		vim.keymap.set("n", "[t", function()
+		bind("n", "[t", function()
 			require("todo-comments").jump_prev()
-		end, { desc = "Previous todo comment" })
+		end, "Previous todo comment")
 
-		vim.keymap.set("n", "<leader>tt", ":TodoTelescope<CR>", { desc = "[T]odo: [T]elescope", noremap = true })
+		bind("n", "<leader>tt", ":TodoTelescope<CR>", "[T]odo: [T]elescope")
 	end,
 }

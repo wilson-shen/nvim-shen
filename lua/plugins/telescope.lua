@@ -41,35 +41,29 @@ return {
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "[S]earch Select [T]elescope" })
-			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-      vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = "[S]earch [R]ecent Files" })
-			vim.keymap.set("n", "<leader>sl", builtin.resume, { desc = "[S]earch [L]ast Search" })
-			vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
+			bind("n", "<leader>sh", builtin.help_tags, "[S]earch [H]elp")
+			bind("n", "<leader>sk", builtin.keymaps, "[S]earch [K]eymaps")
+			bind("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
+			bind("n", "<leader>st", builtin.builtin, "[S]earch Select [T]elescope")
+			bind("n", "<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
+			bind("n", "<leader>sg", builtin.live_grep, "[S]earch by [G]rep")
+			bind("n", "<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
+      bind("n", "<leader>sr", builtin.oldfiles, "[S]earch [R]ecent Files")
+			bind("n", "<leader>sl", builtin.resume, "[S]earch [L]ast Search")
+			bind("n", "<leader>sb", builtin.buffers, "[S]earch existing [B]uffers")
 
-			vim.keymap.set("n", "<leader>sc", function()
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
-			end, { desc = "[S]earch in [C]urrent buffer" })
+			bind("n", "<leader>sc", builtin.current_buffer_fuzzy_find, "[S]earch in [C]urrent buffer")
 
-			vim.keymap.set("n", "<leader>so", function()
+			bind("n", "<leader>so", function()
 				builtin.live_grep({
 					grep_open_files = true,
 					prompt_title = "Live Grep in Open Files",
 				})
-			end, { desc = "[S]earch in [O]pen Files" })
+			end, "[S]earch in [O]pen Files")
 
-			-- Shortcut for searching your Neovim configuration files
-			vim.keymap.set("n", "<leader>sn", function()
+			bind("n", "<leader>sn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
-			end, { desc = "[S]earch [N]eovim files" })
+			end, "[S]earch [N]eovim files")
 		end,
 	},
 }

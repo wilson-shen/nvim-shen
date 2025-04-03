@@ -10,48 +10,48 @@ return {
 			local flutter_tools = require("flutter-tools")
 			local telescope = require("telescope")
 
-			flutter_tools.setup({
-				lsp = {
-					capabilities = require("lsp-zero").get_capabilities(),
-				},
-			})
+			-- flutter_tools.setup({
+			-- 	lsp = {
+			-- 		capabilities = require("lsp-zero").get_capabilities(),
+			-- 	},
+			-- })
 
 			telescope.load_extension("flutter")
 
-			vim.keymap.set("n", "<leader>ff", function()
+			bind("n", "<leader>ff", function()
 				telescope.extensions.flutter.commands()
-			end, { desc = "[F]lutter [F]ind", noremap = true })
+			end, "[F]lutter [F]ind")
 
-			vim.keymap.set("n", "<leader>fq", "<cmd>FlutterQuit<cr>", { desc = "[F]lutter [Q]uit", noremap = true })
-			vim.keymap.set(
+			bind("n", "<leader>fq", "<cmd>FlutterQuit<cr>", "[F]lutter [Q]uit")
+			bind(
 				"n",
 				"<leader>fh",
 				"<cmd>FlutterReload<cr>",
-				{ desc = "[F]lutter [H]ot reload", noremap = true, silent = true }
+				"[F]lutter [H]ot reload"
 			)
-			vim.keymap.set(
+			bind(
 				"n",
 				"<leader>fr",
 				"<cmd>FlutterRestart<cr>",
-				{ desc = "[F]lutter [R]estart", noremap = true, silent = true }
+				"[F]lutter [R]estart"
 			)
-			vim.keymap.set(
+			bind(
 				"n",
 				"<leader>fc",
 				"<cmd>FlutterLogClear<cr>",
-				{ desc = "[F]lutter Log [C]lear", noremap = true, silent = true }
+				"[F]lutter Log [C]lear"
 			)
-			vim.keymap.set(
+			bind(
 				"n",
 				"<leader>ft",
 				"<cmd>FlutterLogToggle<cr>",
-				{ desc = "[F]lutter Log [T]oggle", noremap = true, silent = true }
+				"[F]lutter Log [T]oggle"
 			)
-			vim.keymap.set(
+			bind(
 				"n",
 				"<leader>fe",
 				"<cmd>FlutterEmulators<cr>",
-				{ desc = "[F]lutter [E]mulators", noremap = true, silent = true }
+				"[F]lutter [E]mulators"
 			)
 
 			-- Flutter Run with options
@@ -66,7 +66,7 @@ return {
 				},
 			}
 
-			vim.keymap.set("n", "<leader>fs", function()
+			bind("n", "<leader>fs", function()
 				local pickers = require("telescope.pickers")
 				local entry_display = require("telescope.pickers.entry_display")
 				local finders = require("telescope.finders")
@@ -130,7 +130,7 @@ return {
 						end,
 					})
 					:find()
-			end, { desc = "[F]lutter [S]tart with options", noremap = true })
+			end, "[F]lutter [S]tart with options")
 		end,
 	},
 }

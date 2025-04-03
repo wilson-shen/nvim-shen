@@ -11,25 +11,21 @@ return {
 				help = false,
 			}
 
-			vim.keymap.set("i", "<Tab>", function()
+			bind("i", "<Tab>", function()
 				return vim.fn["codeium#Accept"]()
-			end, { expr = true, silent = true, desc = "Codeium: Accept" })
+			end, "Codeium: Accept", { expr = true })
 
-			vim.keymap.set("i", "<M-n>", function()
+			bind("i", "<M-n>", function()
 				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true, silent = true, desc = "Codeium: Next Suggestion" })
+			end, "Codeium: Next Suggestion", { expr = true })
 
-			vim.keymap.set("i", "<M-p>", function()
+			bind("i", "<M-p>", function()
 				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true, silent = true, desc = "Codeium: Previous Suggestion" })
+			end, "Codeium: Previous Suggestion", { expr = true })
 
-			vim.keymap.set("i", "<M-/>", function()
+			bind("i", "<M-/>", function()
 				return vim.fn["codeium#Clear"]()
-			end, { expr = true, silent = true, desc = "Codeium: Clear" })
-
-			vim.keymap.set({ "n", "v" }, "<leader>cc", function()
-				return vim.fn["codeium#Chat"]()
-			end, { expr = true, silent = true, desc = "Codeium: Chat" })
+			end, "Codeium: Clear", { expr = true })
 		end,
 	},
 }
