@@ -48,39 +48,39 @@ return {
         fold_virt_text_handler = fold_text,
       })
 
-      vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "Fold: Open All" })
-      vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "Fold: Close All" })
+      bind("n", "zR", ufo.openAllFolds, "Fold: Open All")
+      bind("n", "zM", ufo.closeAllFolds, "Fold: Close All")
 
       -- Toggle folds according to level
-      vim.keymap.set("n", "zm1", function()
+      bind("n", "zm1", function()
         ufo.closeFoldsWith(0)
-      end, { desc = "Fold: Close Level 1" })
-      vim.keymap.set("n", "zm2", function()
+      end, "Fold: Close Level 1")
+      bind("n", "zm2", function()
         ufo.closeFoldsWith(1)
-      end, { desc = "Fold: Close Level 2" })
-      vim.keymap.set("n", "zm3", function()
+      end, "Fold: Close Level 2")
+      bind("n", "zm3", function()
         ufo.closeFoldsWith(2)
-      end, { desc = "Fold: Close Level 3" })
-      vim.keymap.set("n", "zm4", function()
+      end, "Fold: Close Level 3")
+      bind("n", "zm4", function()
         ufo.closeFoldsWith(3)
-      end, { desc = "Fold: Close Level 4" })
-      vim.keymap.set("n", "zm5", function()
+      end, "Fold: Close Level 4")
+      bind("n", "zm5", function()
         ufo.closeFoldsWith(4)
-      end, { desc = "Fold: Close Level 5" })
-      vim.keymap.set("n", "zm6", function()
+      end, "Fold: Close Level 5")
+      bind("n", "zm6", function()
         ufo.closeFoldsWith(5)
-      end, { desc = "Fold: Close Level 6" })
-      vim.keymap.set("n", "zm7", function()
+      end, "Fold: Close Level 6")
+      bind("n", "zm7", function()
         ufo.closeFoldsWith(6)
-      end, { desc = "Fold: Close Level 7" })
-      vim.keymap.set("n", "zm8", function()
+      end, "Fold: Close Level 7")
+      bind("n", "zm8", function()
         ufo.closeFoldsWith(7)
-      end, { desc = "Fold: Close Level 8" })
-      vim.keymap.set("n", "zm9", function()
+      end, "Fold: Close Level 8")
+      bind("n", "zm9", function()
         ufo.closeFoldsWith(8)
-      end, { desc = "Fold: Close Level 9" })
+      end, "Fold: Close Level 9")
 
-      vim.keymap.set("n", "K", function()
+      bind("n", "K", function()
         local winid = ufo.peekFoldedLinesUnderCursor()
 
         if not winid then
@@ -88,22 +88,22 @@ return {
         end
       end)
 
-      local lsp_capabilities = vim.tbl_deep_extend(
-        'force',
-        require('cmp_nvim_lsp').default_capabilities(),
-        {
-          textDocument = {
-            foldingRange = {
-              dynamicRegistration = false,
-              lineFoldingOnly = true
-            },
-          },
-        }
-      )
+      -- local lsp_capabilities = vim.tbl_deep_extend(
+      --   'force',
+      --   require('cmp_nvim_lsp').default_capabilities(),
+      --   {
+      --     textDocument = {
+      --       foldingRange = {
+      --         dynamicRegistration = false,
+      --         lineFoldingOnly = true
+      --       },
+      --     },
+      --   }
+      -- )
 
-      require('lsp-zero').extend_lspconfig({
-        capabilities = lsp_capabilities,
-      })
+      -- require('lsp-zero').extend_lspconfig({
+      --   capabilities = lsp_capabilities,
+      -- })
     end,
   },
 }

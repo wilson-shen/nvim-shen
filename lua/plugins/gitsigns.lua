@@ -18,8 +18,8 @@ return {
         current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
       })
 
-      vim.keymap.set("n", "<leader>gt", gitsigns.toggle_current_line_blame, { desc = "[G]it: [T]oggle git blame" })
-      vim.keymap.set("n", "<leader>gph", gitsigns.preview_hunk, { desc = "[G]it: [P]review [H]unk" })
+      bind("n", "<leader>gt", gitsigns.toggle_current_line_blame, "[G]it: [T]oggle git")
+      bind("n", "<leader>gp", gitsigns.preview_hunk_inline, "[G]it: [P]review Hunk")
     end,
   },
 }

@@ -1,6 +1,12 @@
-local bind = function(mode, keys, func, desc)
-	vim.keymap.set(mode, keys, func, { desc = desc, noremap = true, silent = true })
-end
+-- Diasble default lsp bindings
+vim.keymap.del('n', 'gra')
+vim.keymap.del('n', 'gri')
+vim.keymap.del('n', 'grn')
+vim.keymap.del('n', 'grr')
+
+-- Enter create new line
+bind("n", "<S-CR>", "O<Esc>", "Enter create new line above")
+bind("n", "<CR>", "o<Esc>", "Enter create new line below")
 
 -- Disable F1
 bind({ "n", "i", "v" }, "<F1>", "<nop>", "Disable F1 help, use :help")

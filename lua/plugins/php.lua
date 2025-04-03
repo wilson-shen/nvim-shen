@@ -5,10 +5,10 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
-			vim.keymap.set("n", "<leader>pf", "<cmd>Php classes<cr>", { desc = "[F]ind All Classes", silent = true })
-			vim.keymap.set("n", "<leader>pc", "<cmd>Php class<cr>", { desc = "Import [C]lass under cursor", silent = true })
-			vim.keymap.set("n", "<leader>pn", "<cmd>Php namespace<cr>", { desc = "Import [N]amespace", silent = true })
-			vim.keymap.set("n", "<leader>ps", "<cmd>Php sort<cr>", { desc = "[S]ort Classes", silent = true })
+			bind("n", "<leader>pf", "<cmd>Php classes<cr>", "[F]ind All Classes")
+			bind("n", "<leader>pc", "<cmd>Php class<cr>", "Import [C]lass under cursor")
+			bind("n", "<leader>pn", "<cmd>Php namespace<cr>", "Import [N]amespace")
+			bind("n", "<leader>ps", "<cmd>Php sort<cr>", "[S]ort Classes")
 		end,
 	},
 }

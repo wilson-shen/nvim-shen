@@ -38,13 +38,13 @@ return {
         },
       })
 
-      vim.keymap.set("n", "-", function()
+      bind("n", "-", function()
         oil.open_float()
-      end, { desc = "[O]il File Explorer", noremap = true, silent = true })
+      end, "[O]il File Explorer")
 
-      vim.keymap.set("n", "_", function()
+      bind("n", "_", function()
         oil.open_float(vim.fn.getcwd())
-      end, { desc = "[O]il File Explorer", noremap = true, silent = true })
+      end, "[O]il File Explorer")
     end,
   },
 }

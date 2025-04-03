@@ -10,7 +10,7 @@ return {
 				{ "<leader>c", expr = false, group = "[C]ode", mode = "n", nowait = false, remap = false },
 				{ "<leader>d", expr = false, group = "[D]iagnostic", mode = "n", nowait = false, remap = false },
 				{ "<leader>f", expr = false, group = "[F]flutter", mode = "n", nowait = false, remap = false },
-				-- { "<leader>g", expr = false, group = "[G]it", mode = "n", nowait = false, remap = false },
+				{ "<leader>g", expr = false, group = "[G]it", mode = "n", nowait = false, remap = false },
 				{ "<leader>h", expr = false, group = "[H]arpoon", mode = "n", nowait = false, remap = false },
 				{ "<leader>p", expr = false, group = "[P]HP", mode = "n", nowait = false, remap = false },
 				{ "<leader>l", expr = false, group = "[L]azy", mode = "n", nowait = false, remap = false },
