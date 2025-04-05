@@ -63,10 +63,10 @@ bind("v", "K", ":m '<-2<cr>gv=gv", "Move line(s) up")
 
 -- Search and replace
 vim.keymap.set(
-	"n",
-	"<leader>rp",
-	[[:%s/<C-r><C-w>/<C-r><C-w>/gIc<Left><Left><Left><Left>]],
-	{ desc = "[R]e[p]lace", noremap = true, silent = false }
+  "n",
+  "<leader>rp",
+  [[:%s/<C-r><C-w>/<C-r><C-w>/gIc<Left><Left><Left><Left>]],
+  { desc = "[R]e[p]lace", noremap = true, silent = false }
 )
 
 -- Stay in indent mode
@@ -75,25 +75,25 @@ bind("v", ">", ">gv", "")
 
 -- Diagnostic keymaps
 bind("n", "[d", function()
-	vim.diagnostic.goto_prev({})
-	vim.api.nvim_feedkeys("zz", "n", false)
+  vim.diagnostic.jump({ count = -1, float = true })
+  vim.api.nvim_feedkeys("zz", "n", false)
 end, "Go to previous diagnostic")
 
 bind("n", "]d", function()
-	vim.diagnostic.goto_next({})
-	vim.api.nvim_feedkeys("zz", "n", false)
+  vim.diagnostic.jump({ count = 1, float = true })
+  vim.api.nvim_feedkeys("zz", "n", false)
 end, "Go to next diagnostic")
 
 bind("n", "<leader>dm", function()
-	vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 end, "[D]iagnostics: [M]essage")
 
 bind("n", "<leader>dl", function()
-	vim.diagnostic.setloclist()
+  vim.diagnostic.setloclist()
 end, "[D]iagnostic: Set [L]ocation list")
 
 bind("n", "<leader>di", function()
-	vim.diagnostic.config({
-		virtual_text = not vim.diagnostic.config().virtual_text,
-	})
+  vim.diagnostic.config({
+    virtual_text = not vim.diagnostic.config().virtual_text,
+  })
 end, "[D]iagnostic: Toggle [I]nline message")

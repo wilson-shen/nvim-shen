@@ -28,7 +28,7 @@ return {
           list = {
             max_items = 100,
             selection = {
-              preselect = false,
+              preselect = true,
               auto_insert = false,
             },
             cycle = {
@@ -84,8 +84,34 @@ return {
               components = {
                 kind_icon = {
                   ellipsis = false,
-                  text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
-                  highlight = function(ctx) return { { group = ctx.kind_hl, priority = 20000 } } end,
+                  text = function(ctx)
+                    local icon = ctx.kind_icon
+
+                    if ctx.item.source_name == "LSP" then
+                      local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
+                        { kind = ctx.kind })
+
+                      if color_item and color_item.abbr then
+                        icon = color_item.abbr
+                      end
+                    end
+
+                    return icon .. ctx.icon_gap
+                  end,
+                  highlight = function(ctx)
+                    local highlight = "BlinkCmpKind" .. ctx.kind
+
+                    if ctx.item.source_name == "LSP" then
+                      local color_item = require("nvim-highlight-colors").format(ctx.item.documentation,
+                        { kind = ctx.kind })
+
+                      if color_item and color_item.abbr_hl_group then
+                        highlight = color_item.abbr_hl_group
+                      end
+                    end
+
+                    return highlight
+                  end,
                 },
 
                 kind = {
@@ -191,6 +217,18 @@ return {
         },
         signature = {
           enabled = true,
+          window = {
+            min_width = 1,
+            max_width = 100,
+            max_height = 10,
+            border = "rounded",
+            winblend = 0,
+            winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+            scrollbar = false,
+            direction_priority = { 'n', 's' },
+            treesitter_highlighting = true,
+            show_documentation = true,
+          },
         }
       })
     end
