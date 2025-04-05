@@ -11,9 +11,6 @@ return {
       "BufReadPre",
       "BufNewFile",
     },
-    dependencies = {
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-    },
     config = function()
       local conform = require("conform")
 
@@ -134,14 +131,6 @@ return {
 
       -- Format with LSP
       bind({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, "[C]ode: [F]ormat code with LSP")
-
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          "phpactor",
-          "prettier",
-          "stylua",
-        },
-      })
     end,
   },
 }

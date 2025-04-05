@@ -97,19 +97,19 @@ vim.opt.guicursor = {
 	"sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch: block cursor with specific blinking settings
 }
 
--- Diagnostic Floating windows --
-vim.diagnostic.config({
-	float = {
-		border = "rounded",
-	},
-})
+-- -- Diagnostic Floating windows --
+-- vim.diagnostic.config({
+-- 	float = {
+-- 		border = "rounded",
+-- 	},
+-- })
 
--- Diagnostic signs
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+-- -- Diagnostic signs
+-- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- for type, icon in pairs(signs) do
+-- 	local hl = "DiagnosticSign" .. type
+-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+-- end
 
 -- Typo command correction
 vim.api.nvim_create_user_command("W", "w", {})

@@ -77,8 +77,8 @@ return {
             end,
             draw = {
               align_to = 'label',
-              padding = 1,
-              gap = 1,
+              padding = 0,
+              gap = 0,
               treesitter = { 'lsp' },
               columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
               components = {
@@ -169,7 +169,7 @@ return {
           ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
           ['<C-e>'] = { 'hide' },
           ['<CR>'] = { function(cmp)
-            if cmp.is_active() then
+            if cmp.is_menu_visible() then
               return cmp.accept()
             else
               vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
