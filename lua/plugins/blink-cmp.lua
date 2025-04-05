@@ -28,7 +28,7 @@ return {
           list = {
             max_items = 100,
             selection = {
-              preselect = true,
+              preselect = false,
               auto_insert = false,
             },
             cycle = {
@@ -168,7 +168,13 @@ return {
 
           ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
           ['<C-e>'] = { 'hide' },
-          ['<CR>'] = { 'select_and_accept' },
+          ['<CR>'] = { function(cmp)
+            if cmp.is_active() then
+              return cmp.accept()
+            else
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
+            end
+          end },
 
           ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
           ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
