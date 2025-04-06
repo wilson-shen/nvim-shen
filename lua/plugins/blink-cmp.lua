@@ -11,6 +11,9 @@ return {
       local blink = require("blink.cmp")
 
       blink.setup({
+        enabled = function ()
+          return not vim.list_contains({ 'lazy', 'oil' }, vim.bo.filetype)
+        end,
         completion = {
           keyword = {
             range = "prefix",
