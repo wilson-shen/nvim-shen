@@ -220,7 +220,7 @@ return {
       })
 
       -- Custom Flutter/Dart LSP
-      vim.lsp.config("dartls", {
+      lspconfig.dartls.setup({
         cmd = { "dart", "language-server", "--protocol=lsp" },
         filetypes = { "dart" },
         init_options = {
@@ -239,8 +239,6 @@ return {
           },
         },
       })
-
-      vim.lsp.enable("dartls")
     end,
   },
 }
