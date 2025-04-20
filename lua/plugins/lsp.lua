@@ -174,7 +174,6 @@ return {
 
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        -- LSP
         "cssls",
         "cssmodules_ls",
         "eslint",
@@ -185,10 +184,6 @@ return {
         "rust_analyzer",
         "sqlls",
         "svelte",
-
-        -- Formater
-        "prettier",
-        "stylua",
       })
 
       require("mason").setup({

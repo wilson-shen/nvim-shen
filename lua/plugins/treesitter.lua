@@ -38,6 +38,7 @@ return {
         "scss",
         "sql",
         "svelte",
+        "tera",
         "toml",
         "tsx",
         "typescript",
