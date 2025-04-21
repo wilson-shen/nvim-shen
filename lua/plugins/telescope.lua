@@ -22,7 +22,16 @@ return {
 			telescope.setup({
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
+						require("telescope.themes").get_dropdown({
+							layout_config = {
+								width = function(_, max_columns, _)
+									return math.min(max_columns, 200)
+								end,
+								height = function(_, _, max_lines)
+									return math.min(max_lines, 20)
+								end,
+							},
+						}),
 					},
 				},
 				defaults = {
@@ -35,9 +44,9 @@ return {
 			})
 
 			-- Enable Telescope extensions if they are installed
-			pcall(require("telescope").load_extension, "fzf")
-			pcall(require("telescope").load_extension, "ui-select")
-			pcall(require("telescope").load_extension, "file_browser")
+			pcall(telescope.load_extension, "fzf")
+			pcall(telescope.load_extension, "ui-select")
+			pcall(telescope.load_extension, "file_browser")
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
@@ -48,7 +57,7 @@ return {
 			bind("n", "<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
 			bind("n", "<leader>sg", builtin.live_grep, "[S]earch by [G]rep")
 			bind("n", "<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
-      bind("n", "<leader>sr", builtin.oldfiles, "[S]earch [R]ecent Files")
+			bind("n", "<leader>sr", builtin.oldfiles, "[S]earch [R]ecent Files")
 			bind("n", "<leader>sl", builtin.resume, "[S]earch [L]ast Search")
 			bind("n", "<leader>sb", builtin.buffers, "[S]earch existing [B]uffers")
 
