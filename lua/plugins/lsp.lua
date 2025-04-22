@@ -215,25 +215,25 @@ return {
       })
 
       -- Custom Flutter/Dart LSP
-      lspconfig.dartls.setup({
-        cmd = { "dart", "language-server", "--protocol=lsp" },
-        filetypes = { "dart" },
-        init_options = {
-          closingLabels = true,
-          flutterOutline = true,
-          onlyAnalyzeProjectsWithOpenFiles = true,
-          outline = true,
-          suggestFromUnimportedLibraries = true,
-        },
-        root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
-        settings = {
-          dart = {
-            completeFunctionCalls = false,
-            showTodos = true,
-            lineLength = 80,
-          },
-        },
-      })
+      -- lspconfig.dartls.setup({
+      --   cmd = { "dart", "language-server", "--protocol=lsp" },
+      --   filetypes = { "dart" },
+      --   init_options = {
+      --     closingLabels = true,
+      --     flutterOutline = true,
+      --     onlyAnalyzeProjectsWithOpenFiles = true,
+      --     outline = true,
+      --     suggestFromUnimportedLibraries = true,
+      --   },
+      --   root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
+      --   settings = {
+      --     dart = {
+      --       completeFunctionCalls = false,
+      --       showTodos = true,
+      --       lineLength = 80,
+      --     },
+      --   },
+      -- })
     end,
   },
 }

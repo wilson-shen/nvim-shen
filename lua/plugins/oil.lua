@@ -8,7 +8,6 @@ vim.api.nvim_create_autocmd("FileType", {
 return {
   {
     "stevearc/oil.nvim",
-    opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local oil = require("oil")
@@ -35,11 +34,22 @@ return {
         },
         view_options = {
           show_hidden = true,
+          is_always_hidden = function(name, _)
+            local m = name:match(".DS_Store")
+            return m ~= nil
+          end,
+        },
+        win_options = {
+          foldcolumn = "1",
         },
       })
 
       bind("n", "-", function()
-        oil.open_float()
+        oil.open_float(nil, {
+          preview = {
+            vertical = true,
+          },
+        })
       end, "[O]il File Explorer")
 
       bind("n", "_", function()
