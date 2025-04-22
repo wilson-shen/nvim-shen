@@ -24,6 +24,4 @@ I had swap some plugins in this config such as using lazy as plugin manager, upd
    git clone https://github.com/wilson-shen/nvim-shen nvim
    ```
 
-3. Run `nvim` to start Neovim and install the plugins by opening lazy plugin manager `<leader>l`, `Shift + i` to install.
-
-4. Set your own CodeiumAI API key by running command `:Codeium Auth`, then open the provided link, copy your encrypted key and paste into the command.
+3. Run `nvim` to start Neovim.
