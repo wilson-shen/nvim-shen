@@ -32,6 +32,7 @@ return {
 				-- },
 				formatters_by_ft = {
 					css = { "prettier" },
+          dart = { "dart format" },
 					go = { "goimports", "gofmt" },
 					html = { "prettier" },
 					javascript = { "prettier" },
@@ -124,9 +125,13 @@ return {
 
 			-- Normal: format whole file
 			-- Visual: format selected lines
-			bind({ "n", "v" }, "<leader>cf", function()
-				conform.format({ lsp_fallback = true, async = true })
-			end, "[C]ode: [F]ormat code with conform.nvim")
+      bind({ "n", "v" }, "<leader>cf", function()
+        conform.format({ lsp_format = "fallback", async = true })
+        vim.lsp.buf.code_action({
+          context = { only = { "source.organizeImports" } },
+          apply = true,
+        })
+      end, "[C]ode: [F]ormat code with conform.nvim")
 
 			-- Format with LSP
 			bind({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, "[C]ode: [F]ormat code with LSP")

@@ -12,6 +12,9 @@ return {
 
       flutter_tools.setup({
         lsp = {
+          capabilities = function()
+            return vim.lsp.protocol.make_client_capabilities()
+          end,
           settings = {
             completeFunctionCalls = false,
             enableSnippets = true,
