@@ -77,8 +77,14 @@ return {
         virtual_text = false,
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require('blink.cmp').get_lsp_capabilities())
+      local blink_cap = require('blink.cmp').get_lsp_capabilities({
+        textDocument = {
+          completion = {
+            completionItem = { snippetSupport = true },
+          }
+        }
+      })
+      local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), blink_cap)
 
       local servers = {
         jsonls = {

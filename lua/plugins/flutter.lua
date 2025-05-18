@@ -12,8 +12,17 @@ return {
 
       flutter_tools.setup({
         lsp = {
-          capabilities = function()
-            return vim.lsp.protocol.make_client_capabilities()
+          capabilities = function(config)
+            local blink_cap = require('blink.cmp').get_lsp_capabilities({
+              textDocument = {
+                completion = {
+                  completionItem = { snippetSupport = true },
+                }
+              }
+            })
+            local capabilities = vim.tbl_deep_extend("force", config, blink_cap)
+
+            return capabilities
           end,
           settings = {
             completeFunctionCalls = false,
