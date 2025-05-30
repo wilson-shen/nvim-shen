@@ -27,7 +27,6 @@ return {
                 width = function(picker, max_columns, _)
                   local longest = 80
 
-                  -- print(vim.inspect(picker.finder.results[4]))
                   for _, entry in ipairs(picker.finder.results) do
                     local status, display = pcall(require("telescope.pickers.entry_display").resolve, picker, entry)
 
@@ -100,6 +99,85 @@ return {
       bind("n", "<leader>sn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, "[S]earch [N]eovim files")
+
+      bind("n", "<leader>bd", function()
+        local pickers = require("telescope.pickers")
+        local entry_display = require("telescope.pickers.entry_display")
+        local finders = require("telescope.finders")
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+
+        local conf = require("telescope.themes").get_dropdown({
+          width = 0.5,
+          previewer = true,
+          prompt_title = "Buffer: Delete",
+          results_title = false,
+        })
+
+        local buffers = {}
+
+        for _, id in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_buf_is_loaded(id) then
+            local path = vim.api.nvim_buf_get_name(id)
+
+            if path ~= "" then
+              local path_split = str_split(path, '([^/]+)')
+
+              local name = path
+
+              if #path_split > 3 then
+                name = ".../" .. table.concat(path_split, '/', #path_split - 3, #path_split)
+              end
+
+              table.insert(buffers, {
+                id = id,
+                name = name,
+              })
+            end
+          end
+        end
+
+        pickers
+            .new(conf, {
+              finder = finders.new_table({
+                results = buffers,
+                entry_maker = function(entry)
+                  local displayer = entry_display.create({
+                    separator = "",
+                    items = {
+                      { width = 5 },
+                      { remaining = true },
+                    },
+                  })
+
+                  local items = {
+                    { entry.id .. ": ", "String" },
+                    { entry.name,       "Structure" },
+                  }
+
+                  return {
+                    value = entry,
+                    ordinal = entry.id .. entry.name,
+                    display = function()
+                      return displayer(items)
+                    end,
+                  }
+                end,
+              }),
+              sorter = require("telescope.config").values.generic_sorter({}),
+              attach_mappings = function(prompt_bufnr)
+                actions.select_default:replace(function()
+                  actions.close(prompt_bufnr)
+                  local selection = action_state.get_selected_entry()
+
+                  vim.cmd.bdelete(selection.value.id)
+                end)
+
+                return true
+              end,
+            })
+            :find()
+      end, "[B]uffer: [D]elete")
     end,
   },
 }
